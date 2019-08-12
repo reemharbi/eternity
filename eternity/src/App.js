@@ -1,7 +1,14 @@
 
-import React, { Component } from 'react'
+
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import firebase from './firebase.js'; 
 import Projects from './Projects.js';
+
 
 export default class App extends Component {
 
@@ -32,14 +39,26 @@ export default class App extends Component {
   }
   render() {
     return (
-      this.state.projects.length ?
-      <div>
-        <Projects projects={this.state.projects}/>
-      </div>
-      :
-      <h1>Loading Contents</h1>
+//       this.state.projects.length ?
+//       <div>
+//         <Projects projects={this.state.projects}/>
+//       </div>
+//       :
+//       <h1>Loading Contents</h1>
+          <Router>
+        <nav>
+          <Link to="/">Home</Link>{' '}
+         <Link to="/projects">Projetcs</Link>{' '}
+        </nav>
+
+        <div>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={() => <Projects projects={this.state.projects}/>} />
+        </div>
+      </Router>
 
     )
   }
 }
+
 
