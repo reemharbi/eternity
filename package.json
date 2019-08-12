@@ -16,5 +16,8 @@
     "url": "https://github.com/reemharbi/eternity/issues"
   },
   "homepage": "https://github.com/reemharbi/eternity#readme",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "react-router-dom": "^5.0.1"
+  }
 }
