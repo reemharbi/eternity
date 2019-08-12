@@ -26,6 +26,8 @@
 // export default App;
 import React, { Component } from 'react'
 import firebase from './firebase.js'; 
+import Projects from './Projects.js';
+
 export default class App extends Component {
 
   constructor(props){
@@ -64,7 +66,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        
+        <Projects projects={this.state.projects}/>
       </div>
     )
   }
