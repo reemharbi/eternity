@@ -33,17 +33,9 @@ export default class App extends Component {
   constructor(props){
     super(props);
     
+
     this.state = {
-      projects: [{
-        "by" : null,
-        "deployed_url" : null,
-        "git_url" : null,
-        "id" : null,
-        "name" : null,
-        "no" : null,
-        "text" : null
-      }
-      ]
+      projects: []
     }
   }
 
@@ -65,9 +57,13 @@ export default class App extends Component {
   }
   render() {
     return (
+      this.state.projects.length ?
       <div>
         <Projects projects={this.state.projects}/>
       </div>
+      :
+      <h1>Loading Contents</h1>
+
     )
   }
 }
