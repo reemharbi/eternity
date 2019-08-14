@@ -7,7 +7,7 @@ import {
   Link
 } from 'react-router-dom';
 import firebase from './firebase.js'; 
-import Projects from './Projects.js';
+import Projects from './components/projects/Projects.js';
 import Home from './Home';
 
 export default class App extends Component {
