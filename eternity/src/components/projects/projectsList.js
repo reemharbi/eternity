@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProjectItem from './ProjectItem';
+import FlipMove from 'react-flip-move';
 export default class projectsList extends Component {
     render() {
         
@@ -8,7 +9,10 @@ export default class projectsList extends Component {
         })
         return (
             <div>
+                <FlipMove>
                 {projectsList}
+                </FlipMove>
+                
             </div>
         )
     }
