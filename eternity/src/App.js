@@ -17,8 +17,28 @@ export default class App extends Component {
     
 
     this.state = {
-      projects: []
+      searchValue: '',
+      projects: [],
+      displayedProjects: []
     }
+  }
+
+  handleSearchValue = (e) => {
+    const newSearchValue = e.target.value;
+
+    this.setState( (prevState, props) => {
+      const filteredProjects = prevState.projects.filter( project => {
+        return (
+          project.name.toLowerCase().includes(newSearchValue.toLowerCase()) ||
+          project.by[0].toLowerCase().includes(newSearchValue.toLowerCase())
+        )
+      })
+
+        return {
+          searchValue: newSearchValue,
+          displayedProjects: filteredProjects
+        };   
+    }) 
   }
 
   componentDidMount(){
@@ -31,7 +51,8 @@ export default class App extends Component {
 
       this.setState((prevState, props) => {
         return {
-          projects: newState
+          projects: newState,
+          displayedProjects: newState
         }
       })
     });
@@ -47,7 +68,8 @@ export default class App extends Component {
 
         <div>
           <Route exact path='/' component={Home} />
-          <Route path='/projects' component={() => <Projects projects={this.state.projects}/>} />
+          {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
+          <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} {...props} />} />
         </div>
       </Router>
 
