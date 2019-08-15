@@ -1,0 +1,23 @@
+{
+  "name": "eternity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reemharbi/eternity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reemharbi/eternity/issues"
+  },
+  "homepage": "https://github.com/reemharbi/eternity#readme",
+  "keywords": [],
+  "dependencies": {
+    "react-router-dom": "^5.0.1"
+  }
+}
