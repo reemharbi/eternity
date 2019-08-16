@@ -9,6 +9,9 @@ import {
 import firebase from './firebase.js'; 
 import Projects from './Projects.js';
 import Home from './Home';
+import Materials from './Materials';
+import materials from './MaterialsData';
+
 
 export default class App extends Component {
 
@@ -43,11 +46,13 @@ export default class App extends Component {
         <nav>
           <Link to="/">Home</Link>{' '}
          <Link to="/projects">Projects</Link>{' '}
+         <Link to="/materials">Materials</Link>{' '}
         </nav>
 
         <div>
           <Route exact path='/' component={Home} />
           <Route path='/projects' component={() => <Projects projects={this.state.projects}/>} />
+          <Route path='/materials' component={() => <Materials materials={materials} />} />
         </div>
       </Router>
 
