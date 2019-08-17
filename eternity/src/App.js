@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 import {
   BrowserRouter as Router,
   Route,
@@ -88,9 +89,9 @@ export default class App extends Component {
               <Menu.Item>
                 <Image size='small' src={logo} />
               </Menu.Item>
-              <Menu.Item header><Link to="/">Eternity</Link></Menu.Item>
-              <Menu.Item as='a'> <Link to="/materials">Materials</Link></Menu.Item>
-              <Menu.Item as='a'><Link to="/projects">Projects</Link></Menu.Item>
+              <Menu.Item header ><Link to="/" className='link'>Eternity</Link></Menu.Item>
+              <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
+              <Menu.Item as='a'><Link to="/projects" className='link'>Projects</Link></Menu.Item>
              
               <Menu.Menu position='right'>
                 <Dropdown text='Dropdown' pointing className='link item'>

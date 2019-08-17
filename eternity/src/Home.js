@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
-import logo from './images/Triskelion_A.png'
 import _ from 'lodash'
 import {
   Container,
-  Divider,
-  Grid,
-  Header,
   Icon,
   Image,
-  List,
   Menu,
-  Segment,
   Visibility,
 } from 'semantic-ui-react'
 
@@ -129,10 +123,7 @@ export default class Home extends Component {
           */}
 
         <Container text>
-          {_.times(3, (i) => (
-            <Paragraph key={i} />
-          ))}
-
+        
           {/* Example with overlay menu is more complex, SUI simply clones all elements inside, but we should use a
               different approach.
               An empty Visibility element controls the need to change the fixing of element below, it also uses height
@@ -169,7 +160,7 @@ export default class Home extends Component {
             </Menu>
           </div>
 
-          {_.times(3, (i) => (
+          {_.times(1, (i) => (
             <Paragraph key={i} />
           ))}
           <LeftImage />
@@ -177,38 +168,12 @@ export default class Home extends Component {
           <Paragraph />
           <RightImage />
 
-          {_.times(4, (i) => (
-            <Paragraph key={i} />
-          ))}
-          <LeftImage />
-
-          <Paragraph />
-          <RightImage />
-
-          {_.times(2, (i) => (
+          {_.times(1, (i) => (
             <Paragraph key={i} />
           ))}
         </Container>
 
-        {/* <Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} vertical>
-          <Container textAlign='center'>
-            <Image src={logo} centered size='mini' />
-            <List horizontal inverted divided link size='small'>
-              <List.Item as='a' href='#'>
-                Site Map
-              </List.Item>
-              <List.Item as='a' href='#'>
-                Contact Us
-              </List.Item>
-              <List.Item as='a' href='#'>
-                Terms and Conditions
-              </List.Item>
-              <List.Item as='a' href='#'>
-                Privacy Policy
-              </List.Item>
-            </List>
-          </Container>
-        </Segment> */}
+     
       </div>
     )
   }
