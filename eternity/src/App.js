@@ -1,19 +1,50 @@
-
-
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
+import logo from './images/Triskelion_B.gif'
+import logo_1 from './images/Triskelion_A.png'
 import firebase from './firebase.js'; 
 import Projects from './Projects.js';
 import Home from './Home';
 import Materials from './Materials';
 import materials from './MaterialsData';
+import {
+  Container,
+  Dropdown,
+  Image,
+  Menu,
+  Visibility,
+  List,
+  Segment
+} from 'semantic-ui-react'
+
+const menuStyle = {
+  border: 'none',
+  borderRadius: 0,
+  boxShadow: 'none',
+  marginBottom: '1em',
+  marginTop: '4em',
+  transition: 'box-shadow 0.5s ease, padding 0.5s ease',
+}
+
+const fixedMenuStyle = {
+  backgroundColor: '#fff',
+  border: '1px solid #ddd',
+  boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
+}
 
 
 export default class App extends Component {
+  state = {
+    menuFixed: false,
+    overlayFixed: false,
+  }
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   constructor(props){
     super(props);
@@ -26,8 +57,6 @@ export default class App extends Component {
 
   componentDidMount(){
 
-    // fetch Projects  from realtime database and set state
-    // will fetch every time there is a change on the database
     const projectsRef = firebase.database().ref('projects');
     projectsRef.on('value', (snapshot) => {
       let newState = snapshot.val();
@@ -41,21 +70,79 @@ export default class App extends Component {
 
   }
   render() {
+    const { menuFixed, activeItem } = this.state
+
     return (
           <Router>
-        <nav>
-          <Link to="/">Home</Link>{' '}
-         <Link to="/projects">Projects</Link>{' '}
-         <Link to="/materials">Materials</Link>{' '}
-        </nav>
+        <Visibility
+          onBottomPassed={this.stickTopMenu}
+          onBottomVisible={this.unStickTopMenu}
+          once={false}
+        >
+          <Menu
+            borderless
+            fixed={menuFixed ? 'top' : undefined}
+            style={menuFixed ? fixedMenuStyle : menuStyle}
+          >
+            <Container text>
+              <Menu.Item>
+                <Image size='small' src={logo} />
+              </Menu.Item>
+              <Menu.Item header><Link to="/">Eternity</Link></Menu.Item>
+              <Menu.Item as='a'> <Link to="/materials">Materials</Link></Menu.Item>
+              <Menu.Item as='a'><Link to="/projects">Projects</Link></Menu.Item>
+             
+              <Menu.Menu position='right'>
+                <Dropdown text='Dropdown' pointing className='link item'>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>List Item</Dropdown.Item>
+                    <Dropdown.Item>List Item</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Header>Header Item</Dropdown.Header>
+                    <Dropdown.Item>
+                      <i className='dropdown icon' />
+                      <span className='text'>Submenu</span>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown.Item>
+                    <Dropdown.Item>List Item</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Menu.Menu>
+            </Container>
+          </Menu>
+        </Visibility>
 
         <div>
           <Route exact path='/' component={Home} />
           <Route path='/projects' component={() => <Projects projects={this.state.projects}/>} />
           <Route path='/materials' component={() => <Materials materials={materials} />} />
         </div>
-      </Router>
 
+        <Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} vertical>
+<Container textAlign='center'>
+  <Image src={logo_1} centered size='mini' />
+  <List horizontal inverted divided link size='small'>
+    <List.Item as='a' href='#'>
+      Site Map
+    </List.Item>
+    <List.Item as='a' href='#'>
+      Contact Us
+    </List.Item>
+    <List.Item as='a' href='#'>
+      Terms and Conditions
+    </List.Item>
+    <List.Item as='a' href='#'>
+      Privacy Policy
+    </List.Item>
+  </List>
+</Container>
+</Segment>
+
+
+      </Router>
     )
   }
 }
