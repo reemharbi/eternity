@@ -10,8 +10,11 @@ import logo_1 from './images/Triskelion_A.png'
 import firebase from './firebase.js'; 
 import Projects from './components/projects/Projects.js';
 import Home from './Home';
-import Materials from './Materials';
-import materials from './MaterialsData';
+import Materials from './components/materials/Materials';
+import materials from './components/materials/MaterialsData';
+import Family from './components/family/Family';
+import Timeline from './components/timeline/Timeline';
+
 import {
   Container,
   Dropdown,
@@ -112,6 +115,8 @@ export default class App extends Component {
               <Menu.Item header ><Link to="/" className='link'>Eternity</Link></Menu.Item>
               <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
               <Menu.Item as='a'><Link to="/projects" className='link'>Projects</Link></Menu.Item>
+              <Menu.Item as='a'><Link to="/family" className='link'>The Family</Link></Menu.Item>
+              <Menu.Item as='a'><Link to="/timeline" className='link'>Timeline</Link></Menu.Item>
              
               <Menu.Menu position='right'>
                 <Dropdown text='Dropdown' pointing className='link item'>
@@ -141,6 +146,8 @@ export default class App extends Component {
           {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
           <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} {...props} />} />
           <Route path='/materials' component={() => <Materials materials={materials} />} />
+          <Route path='/family' component={() => <Family Family={Family} />} />
+          <Route path='/timeline' component={() => <Timeline Timeline={Timeline} />} />
         </div>
 
         <Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} vertical>
