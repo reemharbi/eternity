@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './ProjectItem.css';
 import PosterImage from './PosterImage';
 import ProjectTag from './ProjectTag';
-import { Card, Icon, Image, CardContent } from 'semantic-ui-react'
+import { Card, Icon, Image, CardContent, Label } from 'semantic-ui-react'
 
 export default class ProjectItem extends Component {
     render() {
@@ -16,17 +16,17 @@ export default class ProjectItem extends Component {
 
     <Card.Content>
       <Card.Header>{this.props.project.name}</Card.Header>
-      <Card.Meta>
-        <span className='name'> By: {this.props.project.by}</span>
-        <span className='name'> Project NO: {this.props.project.no}</span>
-        
-      </Card.Meta>
+
+
+    <Card.Meta>       
+</Card.Meta>
       <Card.Description>
          {this.props.project.text}
       </Card.Description>
 
     </Card.Content>
     <Card.Content extra>
+
           <a href={this.props.project.git_url} target="_blank" >
           <Icon name="github square" size="big"/>
           </a>
@@ -34,6 +34,11 @@ export default class ProjectItem extends Component {
           <a href={this.props.project.deployed_url} target="_blank" >
           <Icon name="play" size="big"/>
           </a>
+          <Label as='a' image>
+      <img src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
+      {this.props.project.by}
+
+    </Label>
           
       </Card.Content>
 
