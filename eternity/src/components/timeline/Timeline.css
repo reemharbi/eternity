@@ -1,0 +1,19 @@
+.test {
+    background-color:	#C8C8C8;
+}
+
+.vertical-timeline-element--work .vertical-timeline-element-content {
+    border-top: 3px solid #2196f3;
+}
+span {
+    color: #2196f3;
+}
+
+.meta {
+    font-size: 1em;
+    color: rgba(0,0,0,.4);
+}
+
+.line {
+    border-bottom: 1px solid rgba(0,0,0,.4);
+}
