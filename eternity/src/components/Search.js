@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
+import { Input } from 'semantic-ui-react'
 
 export default class Search extends Component {
     render() {
         return (
             <div>
-                <label htmlFor="search">
-                    Search: 
-                </label>
-                <input type="search"
+                <Input
+                icon='search' 
+                placeholder='Search...'
+                 type="search"
                        name="search"
                        value={this.props.value}
-                       onChange={this.props.onChange}/>
+                       onChange={(v)=>this.props.onChange(v)}/>
             </div>
         )
     }
