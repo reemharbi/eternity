@@ -11,7 +11,7 @@ export default class Search extends Component {
                  type="search"
                        name="search"
                        value={this.props.value}
-                       onChange={this.props.onChange}/>
+                       onChange={(v)=>this.props.onChange(v)}/>
             </div>
         )
     }
