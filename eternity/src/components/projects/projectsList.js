@@ -9,7 +9,7 @@ export default class projectsList extends Component {
         })
         return (
             <>
-                <Card.Group>{projectsList}</Card.Group>
+                <Card.Group itemsPerRow={4}>{projectsList}</Card.Group>
                 
             </>
         )

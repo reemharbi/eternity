@@ -1,4 +1,4 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 const config = {
     // apiKey: "AIzaSyDblTESEB1SbAVkpy2q39DI2OHphL2-Jxw",
     // authDomain: "fun-food-friends-eeec7.firebaseapp.com",

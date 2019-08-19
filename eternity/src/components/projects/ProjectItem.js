@@ -7,11 +7,30 @@ import { Card, Icon, Image, CardContent, Label } from 'semantic-ui-react'
 export default class ProjectItem extends Component {
     render() {
         const tagsList = this.props.project.tags.map((tag, index) => {
-            return <ProjectTag tag={tag}/>
-        })
+            return <ProjectTag tag={tag} key={index}/>
+        });
+        let color 
+        switch (this.props.project.no) {
+            case 1:
+              color = "blue";
+              break;
+            case 2:
+              color = "red";
+              break;
+            case 3:
+               color = "green";
+              break;
+            case 4:
+              color = "yellow";
+              break;
+            default:
+                color =""
+          }
         return (
             <Card>
-            <Image src={this.props.project.img_url}  wrapped ui={false} />
+            <Image src={this.props.project.img_url}  wrapped ui={false} 
+            label={{ as: 'a', color: color, content: `Project ${this.props.project.no}`, ribbon: true }}
+             />
 
 
     <Card.Content>
@@ -37,14 +56,14 @@ export default class ProjectItem extends Component {
           <Label as='a' image>
       <img src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
       {this.props.project.by}
-
     </Label>
+
           
       </Card.Content>
 
       <Card.Content extra>
 
-      <p>{tagsList}</p>
+      {tagsList}
           
       </Card.Content>
             </Card>

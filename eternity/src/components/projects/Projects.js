@@ -11,7 +11,7 @@ export default class Projects extends Component {
 
         return (
 
-               <Container textAlign='center'>     
+            <Container textAlign='center'>     
                 <Search onChange={this.props.onChange} value={this.props.searchValue}/>
                 <Divider horizontal>Projects</Divider>
                 <ProjectsList projects={this.props.projects} />
