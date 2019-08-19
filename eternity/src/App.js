@@ -14,6 +14,7 @@ import Materials from './components/materials/Materials';
 import materials from './components/materials/MaterialsData';
 import Family from './components/family/Family';
 import Timeline from './components/timeline/Timeline';
+import timeline from './components/timeline/TimelineData';
 
 import {
   Container,
@@ -147,7 +148,7 @@ export default class App extends Component {
           <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} {...props} />} />
           <Route path='/materials' component={() => <Materials materials={materials} />} />
           <Route path='/family' component={() => <Family Family={Family} />} />
-          <Route path='/timeline' component={() => <Timeline Timeline={Timeline} />} />
+          <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
         </div>
 
         <Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} vertical>

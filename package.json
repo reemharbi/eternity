@@ -18,6 +18,7 @@
   "homepage": "https://github.com/reemharbi/eternity#readme",
   "keywords": [],
   "dependencies": {
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "react-vertical-timeline-component": "^2.4.0"
   }
 }
