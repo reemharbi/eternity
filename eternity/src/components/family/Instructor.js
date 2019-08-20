@@ -1,31 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Image, Card, Icon,Divider, Segment } from 'semantic-ui-react';
-
-
-const SegmentExampleNestedSegments = () => (
-    <Segment.Group>
-      <Segment>
-        
-      </Segment>
-      <Segment.Group>
-        <Segment>Nested Top</Segment>
-        <Segment>Nested Middle</Segment>
-        <Segment>Nested Bottom</Segment>
-      </Segment.Group>
-      <Segment.Group horizontal>
-        <Segment>  
-            <Image src='https://www.usmanbashir.com/wp-content/uploads/bb-plugin/cache/usman-bashir-circle.jpg' /></Segment>
-        <Segment>Middle</Segment>
-      </Segment.Group>
-      <Segment>
-
-          <Icon name="github"  size="huge"/>
-          <Icon name="linkedin"  size="huge"/>
-        
-</Segment>
-    </Segment.Group>
-  )
-
+import './Instructor.css';
   
 export default class Instructor extends Component {
     render() {
@@ -34,14 +9,29 @@ export default class Instructor extends Component {
 
         <Card fluid  >             
         
-            <SegmentExampleNestedSegments />
-            <p>{this.props.instructor.name}</p>
-                <p>{this.props.instructor.title}</p>
-                <p>{this.props.instructor.age}</p>
-                <p>{this.props.instructor.personality_type}</p>
-                <p>{this.props.instructor.zodiac_sign}</p>
-                <p>{this.props.instructor.quote}</p>
- 
+      <Segment.Group>
+      <Segment>
+      <h1>Title</h1>  
+      </Segment>
+      <Segment.Group horizontal>
+        <Segment >  
+            <Image src='https://www.usmanbashir.com/wp-content/uploads/bb-plugin/cache/usman-bashir-circle.jpg' size="medium"  centered="true" /></Segment>
+        <Segment>
+        <Segment.Group>
+        <Segment inverted> <p>{this.props.instructor.name}</p> </Segment>
+        <Segment><h5>Title:</h5><p>{this.props.instructor.title}</p> </Segment>
+        <Segment color='black'> <h5>Age:</h5><p>{this.props.instructor.age}</p> </Segment>
+        {/* <Segment> <p>{this.props.instructor.personality_type}</p> </Segment>
+        <Segment> <p>{this.props.instructor.zodiac_sign}</p> </Segment> */}
+      </Segment.Group>
+        </Segment>
+      </Segment.Group>
+      <Segment className="quote"> <h2>{`"${this.props.instructor.quote}"`}</h2> </Segment>
+      <Segment>
+          <Icon name="github"  size="huge"/>
+          <Icon name="linkedin"  size="huge"/>   
+      </Segment>
+    </Segment.Group>
                 <Divider/>
                 
             </Card>

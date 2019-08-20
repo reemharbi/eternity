@@ -11,7 +11,7 @@ export default class Materials extends Component {
 
         return (
             <Container>
-            <Divider horizontal>Projects</Divider>
+            <Divider horizontal>Materials</Divider>
             </Container>
         )
     }
