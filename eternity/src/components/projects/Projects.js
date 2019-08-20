@@ -47,6 +47,7 @@ export default class Projects extends Component {
                     totalPages={Math.ceil(this.props.projects.length/6)}
 
           />
+          <Divider />
                 <ProjectsList projects={this.props.projects} activePage={this.state.activePage}/>
             </Container>      
         )
