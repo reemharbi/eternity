@@ -11,6 +11,7 @@ export default class InstructorsList extends Component {
                 <Divider horizontal>Instructors</Divider>
 
                 <Card.Group>
+              
                 {instructorsList}
                 </Card.Group>
             </>    
