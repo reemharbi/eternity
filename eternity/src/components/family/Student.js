@@ -51,7 +51,7 @@ export default class Student extends Component {
                 </Card.Content>
                 <Card.Content extra>
 
-                    <a href={`https://github.com/users/${this.props.student.git}`} target="_blank" >
+                    <a href={`https://github.com/${this.props.student.git}`} target="_blank" >
                     <Icon name="github square" size="big"/>
                     </a>
 
