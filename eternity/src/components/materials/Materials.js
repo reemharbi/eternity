@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MaterialItem from './MaterialItem'
+import { Divider, Container } from 'semantic-ui-react'
 
 export default class Materials extends Component {
     render() {
@@ -9,9 +10,9 @@ export default class Materials extends Component {
         })
 
         return (
-            <div>
-                {materialsList}
-            </div>
+            <Container>
+            <Divider horizontal>Projects</Divider>
+            </Container>
         )
     }
 }
