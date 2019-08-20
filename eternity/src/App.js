@@ -61,6 +61,7 @@ export default class App extends Component {
       projects: [],
       displayedProjects: [],
       instructors:[],
+      students:[],
       visibleLogo: logo
     }
   }
@@ -123,6 +124,7 @@ export default class App extends Component {
 
     const projectsRef = firebase.database().ref('projects');
     const instructorsRef = firebase.database().ref('instructors');
+    const studentsRef = firebase.database().ref('students');
     projectsRef.on('value', (snapshot) => {
       let newState = snapshot.val();
 
@@ -140,6 +142,16 @@ export default class App extends Component {
       this.setState((prevState, props) => {
         return {
           instructors: newState,
+        }
+      })
+    });
+
+    studentsRef.on('value', (snapshot) => {
+      let newState = snapshot.val();
+
+      this.setState((prevState, props) => {
+        return {
+          students: newState,
         }
       })
     });
@@ -179,7 +191,7 @@ export default class App extends Component {
           {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
           <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} {...props} />} />
           <Route path='/materials' component={() => <Materials materials={materials} />} />
-          <Route path='/family' component={() => <Family instructors={this.state.instructors} />} />
+          <Route path='/family' component={() => <Family instructors={this.state.instructors} students={this.state.students}/>} />
           <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
         </div>
 
