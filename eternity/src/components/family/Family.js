@@ -4,6 +4,7 @@ import {
     Container
   } from 'semantic-ui-react';
 import InstructorsList from './InstructorsList';
+import StudentsList from "./StudentsList";
 
 export default class Family extends Component {
     render() {
@@ -12,7 +13,7 @@ export default class Family extends Component {
 
             <Divider horizontal>The Family</Divider>
             <InstructorsList instructors={this.props.instructors}/>
-
+            <StudentsList/>
             </Container>
         )
     }

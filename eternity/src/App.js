@@ -15,6 +15,9 @@ import materials from './components/materials/MaterialsData';
 import Family from './components/family/Family';
 import Timeline from './components/timeline/Timeline';
 import timeline from './components/timeline/TimelineData';
+import secretLogo from './images/secret_logo.gif';
+import aaaLogo from './images/aaa_logo.png';
+import pikminLogo from './images/pikmin_logo.png';
 
 import {
   Container,
@@ -23,7 +26,7 @@ import {
   Visibility,
   List,
   Segment
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 
 const menuStyle = {
   border: 'none',
@@ -57,13 +60,50 @@ export default class App extends Component {
       searchValue: '',
       projects: [],
       displayedProjects: [],
-      instructors:[]
+      instructors:[],
+      visibleLogo: logo
     }
   }
 
   handleSearchValue = (e) => {
     const newSearchValue = e.target.value;
 
+
+    if (newSearchValue.toLowerCase() === "sei" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: secretLogo,
+
+          };   
+      }) 
+    }
+
+    if (newSearchValue.toLowerCase() === "eternity" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: logo,
+
+          };   
+      }) 
+    }
+
+    if (newSearchValue.toLowerCase() === "aaa" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: aaaLogo,
+
+          };   
+      }) 
+    }
+
+    if (newSearchValue.toLowerCase() === "pikmin" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: pikminLogo,
+
+          };   
+      }) 
+    }
     this.setState( (prevState, props) => {
       const filteredProjects = prevState.projects.filter( project => {
         return (
@@ -122,7 +162,7 @@ export default class App extends Component {
           >
             <Container text>
               <Menu.Item>
-                <Image size='small' src={logo} />
+                <Image size='small' src={this.state.visibleLogo} />
               </Menu.Item>
               <Menu.Item header ><Link to="/" className='link'>Eternity</Link></Menu.Item>
               <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
