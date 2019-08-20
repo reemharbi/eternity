@@ -54,7 +54,7 @@ export default class ProjectItem extends Component {
           <Icon name="play" size="big"/>
           </a>
           <Label as='a' image>
-      <img src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
+      <Icon name="user" />
       {this.props.project.by}
     </Label>
 
