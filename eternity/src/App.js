@@ -21,7 +21,6 @@ import pikminLogo from './images/pikmin_logo.png';
 
 import {
   Container,
-  Dropdown,
   Image,
   Menu,
   Visibility,
@@ -183,25 +182,6 @@ export default class App extends Component {
               <Menu.Item as='a'><Link to="/family" className='link'>The Family</Link></Menu.Item>
               <Menu.Item as='a'><Link to="/timeline" className='link'>Timeline</Link></Menu.Item>
              
-              <Menu.Menu position='right'>
-                <Dropdown text='Dropdown' pointing className='link item'>
-                  <Dropdown.Menu>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Header>Header Item</Dropdown.Header>
-                    <Dropdown.Item>
-                      <i className='dropdown icon' />
-                      <span className='text'>Submenu</span>
-                      <Dropdown.Menu>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu.Menu>
             </Container>
           </Menu>
         </Visibility>
