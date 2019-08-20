@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Card, Icon, Image, List} from 'semantic-ui-react'
-
+import { Card, Icon, Image, List, Divider, Segment} from 'semantic-ui-react'
+import axios from 'axios';
+import aquarius from './zodiac/aquarius-1.svg';
+import libra from './zodiac/libra-1.svg';
 export default class Student extends Component {
     constructor(props){
         super(props);
@@ -19,15 +21,33 @@ export default class Student extends Component {
           });
     }
     render() {
+        let zodiacSign;
+
+        switch (this.props.student.zodiac_sign) {
+            case "Aquarius":
+              zodiacSign = aquarius;
+              break;
+            case "Libra":
+                zodiacSign = libra;
+              default:
+                zodiacSign = libra;
+          }
         return (
             <Card>
                 <Card.Content header={this.props.student.name} />
+                <Divider/>
+                <Image src={this.state.git.avatar_url}  size='mini' wrapped ui={false}/>
                 <Card.Content>
-                    <List>
-                        <List.Item>Age: {this.props.student.age}</List.Item>
-                        <List.Item>Zodiac sign: {this.props.student.zodiac_sign}</List.Item>
-                        <List.Item>Personality: {this.props.student.personality_type}</List.Item>
-                    </List>
+
+
+
+        <Segment.Group>
+        <Segment> <h5>Team:</h5><p>{this.props.student.team}</p> </Segment>
+        <Segment> <h5>Personality Type:</h5><p>{this.props.student.personality_type}</p> </Segment>
+        <Segment> <h5>Zodiac Sign:</h5><Image src= {zodiacSign} size='tiny' /> </Segment>
+
+      </Segment.Group>
+      
                 </Card.Content>
                 <Card.Content extra>
 
@@ -42,7 +62,7 @@ export default class Student extends Component {
 
 
                 </Card.Content>
-
+                {/* <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> */}
             </Card>
         )
     }
