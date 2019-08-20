@@ -9,7 +9,7 @@ export default class InstructorsList extends Component {
         return (
             <>
                 <Divider horizontal>Instructors</Divider>
-
+                
                 <Card.Group>
               
                 {instructorsList}
