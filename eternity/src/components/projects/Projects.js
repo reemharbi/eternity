@@ -37,8 +37,13 @@ export default class Projects extends Component {
    
 
             <Container textAlign='center'>     
-                <Search onChange={(v)=>this.onChange(v)} value={this.props.searchValue}/>
                 <Divider horizontal>Projects</Divider>
+                <Search onChange={(v)=>this.onChange(v)} value={this.props.searchValue}/>
+               
+          <Divider />
+                <ProjectsList projects={this.props.projects} activePage={this.state.activePage}/>
+          
+                <Divider />  
                 <Pagination
                     activePage={activePage}
                     boundaryRange={boundaryRange}
@@ -47,8 +52,6 @@ export default class Projects extends Component {
                     totalPages={Math.ceil(this.props.projects.length/6)}
 
           />
-          <Divider />
-                <ProjectsList projects={this.props.projects} activePage={this.state.activePage}/>
             </Container>      
         )
     }

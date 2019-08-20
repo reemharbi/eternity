@@ -4,6 +4,7 @@ import {
     Container
   } from 'semantic-ui-react';
 import InstructorsList from './InstructorsList';
+
 export default class Family extends Component {
     render() {
         return (

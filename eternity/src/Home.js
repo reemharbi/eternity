@@ -6,6 +6,7 @@ import {
   Image,
   Menu,
   Visibility,
+  Divider
 } from 'semantic-ui-react'
 
 
@@ -123,7 +124,7 @@ export default class Home extends Component {
           */}
 
         <Container text>
-        
+        <Divider horizontal>Eternity</Divider>        
           {/* Example with overlay menu is more complex, SUI simply clones all elements inside, but we should use a
               different approach.
               An empty Visibility element controls the need to change the fixing of element below, it also uses height
