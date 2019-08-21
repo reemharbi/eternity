@@ -19,7 +19,7 @@ import timeline from './components/timeline/TimelineData';
 import secretLogo from './images/secret_logo.gif';
 import aaaLogo from './images/aaa_logo.png';
 import pikminLogo from './images/pikmin_logo.png';
-import saraCatsLogo from '/images/sara_cats.jpg';
+import saraCatsLogo from './images/sara_cats.jpg';
 
 import {
   Container,
