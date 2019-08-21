@@ -2,7 +2,6 @@
 <p align="center">
 <img src="https://i.postimg.cc/Kc3Rdzp3/Triskelion-B.png"
      alt="Tri_logo"
-     style="margin-left: auto; margin-right: auto;"
      width="100" />
   </p>
 
@@ -37,9 +36,15 @@ This website was made as a way to remember all the great memories and members of
 
 - **Easter Eggs**
 
-1- ![secret-logo.png](https://i.postimg.cc/rpmBLW3r/secret-logo.png)
-2- ![pikmin-logo.png](https://i.postimg.cc/CMDWYwPm/pikmin-logo.png)
-3- ![aaa-logo.png](https://i.postimg.cc/1z2jhdDk/aaa-logo.png)
+- <img src="https://i.postimg.cc/rpmBLW3r/secret-logo.png"
+     alt="Tri_logo"
+     width="100" />   
+- <img src="https://i.postimg.cc/CMDWYwPm/pikmin-logo.png"
+     alt="Tri_logo"
+     width="100" />
+- <img src="https://i.postimg.cc/1z2jhdDk/aaa-logo.png"
+     alt="Tri_logo"
+     width="100" />
 
 <h3 align="center">Try to catch them all! ✨</h3>
 
