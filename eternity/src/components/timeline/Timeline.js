@@ -23,7 +23,7 @@ export default class Timeline extends Component {
 
         return (
             
-            <Container>
+            <Container className="timeline">
             <div className="memories">
              <Divider horizontal>Memories Timeline</Divider>
              

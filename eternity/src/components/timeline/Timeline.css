@@ -25,3 +25,8 @@ span {
 .icon {
     top: 10px;
 }
+
+.timeline {
+    margin-bottom: 150px;
+    border: 0px;
+}

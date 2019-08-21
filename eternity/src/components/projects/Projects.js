@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProjectsList from './projectsList';
 import Search from '../Search';
+import './Projects.css';
 
 import {
     Pagination,
@@ -35,7 +36,7 @@ export default class Projects extends Component {
         return (
    
 
-            <Container textAlign='center' >     
+            <Container className="project" textAlign='center'>     
                 <Divider horizontal>Projects</Divider>
                 <Search onChange={(v)=>this.onChange(v)} value={this.props.searchValue}/>
                
