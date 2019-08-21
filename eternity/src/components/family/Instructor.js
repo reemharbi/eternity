@@ -84,7 +84,7 @@ export default class Instructor extends Component {
             case "Defender":
             case "Executive":
             case "Consul":    
-                perColor = 'teal';
+                perColor = 'blue';
                 break;
 
             case "Virtuoso":

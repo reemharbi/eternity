@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
+  HashRouter,
   Route,
   Link
 } from 'react-router-dom';
@@ -163,7 +164,7 @@ export default class App extends Component {
     const { menuFixed, activeItem } = this.state
 
     return (
-        <Router>
+        <HashRouter basename='/eternity'>
         <Visibility
           onBottomPassed={this.stickTopMenu}
           onBottomVisible={this.unStickTopMenu}
@@ -178,7 +179,7 @@ export default class App extends Component {
               <Menu.Item>
                 <Image size='small' src={this.state.visibleLogo} />
               </Menu.Item>
-              <Menu.Item header ><Link to="/eternity" className='link'>Eternity</Link></Menu.Item>
+              <Menu.Item header><Link to="/" className='link'>Eternity</Link></Menu.Item>
               <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
               <Menu.Item as='a'><Link to="/projects" className='link'>Projects</Link></Menu.Item>
               <Menu.Item as='a'><Link to="/family" className='link'>The Family</Link></Menu.Item>
@@ -192,7 +193,7 @@ export default class App extends Component {
         </Visibility>
       
         <div>
-          <Route exact path='/eternity' component={Home} />
+          <Route exact path='/' component={Home} />
           {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
           <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} {...props} />} />
           <Route path='/materials' component={() => <Materials materials={materials} />} />
@@ -208,7 +209,7 @@ export default class App extends Component {
         Made with ♥ by The Pikmin</p>
         </Container>
         </div>
-      </Router>
+      </HashRouter>
     )
   }
 }

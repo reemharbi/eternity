@@ -100,7 +100,7 @@ export default class Student extends Component {
             case "Defender":
             case "Executive":
             case "Consul":    
-                perColor = 'teal';
+                perColor = 'blue';
                 break;
 
             case "Virtuoso":
@@ -116,7 +116,9 @@ export default class Student extends Component {
           }
         return (
             <Card>
-                <Segment inverted color={perColor}>  <Card.Content  header={this.props.student.name} /></Segment>
+                <Segment inverted color={perColor}>  
+                <Card.Content  header={this.props.student.name} />
+                </Segment>
                 <Image src={this.state.git.avatar_url}  size='mini' wrapped ui={false}/>
                 <Card.Content>
 
@@ -141,12 +143,8 @@ export default class Student extends Component {
                     <Icon name="linkedin" size="big"/>
                     </a>
 
-
-
                 </Card.Content>
-
-                {/* <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> */}
-            </Card>
+              </Card>
         )
     }
 }
