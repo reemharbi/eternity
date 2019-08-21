@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
-
+import Student from './Student';
+import {Divider,
+        Card} from 'semantic-ui-react';
 export default class StudentsList extends Component {
     render() {
+        const studentsList = this.props.students.map((student, index) => {
+            return <Student  key={index} student={student} />;
+            })
         return (
-            <div>
-                
-            </div>
+            <>
+                <Divider horizontal>Students</Divider>
+
+                <Card.Group>
+                {studentsList}
+                </Card.Group>
+            </>    
         )
     }
 }

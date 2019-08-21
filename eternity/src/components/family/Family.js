@@ -13,7 +13,7 @@ export default class Family extends Component {
 
             <Divider horizontal>The Family</Divider>
             <InstructorsList instructors={this.props.instructors}/>
-            <StudentsList/>
+            <StudentsList students={this.props.students}/>
             </Container>
         )
     }
