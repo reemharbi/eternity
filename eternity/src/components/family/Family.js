@@ -5,13 +5,13 @@ import {
   } from 'semantic-ui-react';
 import InstructorsList from './InstructorsList';
 import StudentsList from "./studentsList";
+import './Family.css'
 
 
 export default class Family extends Component {
     render() {
         return (
-            <Container textAlign='center'>     
-
+            <Container textAlign='center' className="family">     
             <Divider horizontal>The Family</Divider>
             <InstructorsList instructors={this.props.instructors}/>
             <StudentsList students={this.props.students}/>
