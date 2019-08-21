@@ -46,7 +46,7 @@ export default class Student extends Component {
             case "Cancer":
                 zodiacSign = cancer;
                 break;
-            case "capricorn":
+            case "Capricorn":
                 zodiacSign = capricorn;
                 break;                
             case "Aries":
@@ -116,8 +116,7 @@ export default class Student extends Component {
           }
         return (
             <Card>
-                <Card.Content header={this.props.student.name} />
-                <Divider/>
+                <Segment inverted color={perColor}>  <Card.Content  header={this.props.student.name} /></Segment>
                 <Image src={this.state.git.avatar_url}  size='mini' wrapped ui={false}/>
                 <Card.Content>
 
