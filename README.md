@@ -104,4 +104,4 @@ That's it! :star:
 ---
 
 ### Development Process:
-The website was built on rails. Components were divided on team members to work on. Source controlling was used to merge all components. A database was built using firebase.
+The website was built on rails. Components were divided on team members to work on. Source controlling was used to merge all components. A database was built using firebase. Styling was done using Semantic-ui library. The team communication was done through Monday. 
