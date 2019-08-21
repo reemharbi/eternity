@@ -2,7 +2,7 @@ const materials = [
     {
         title: "HTML",
         img_url: "https://icon-library.net/images/html5-icon/html5-icon-13.jpg",
-        content: "HTML stands for Hyper Text Markup Language. It is used to design web pages using markup language. HTML is the combination of Hypertext and Markup language. Hypertext defines the link between the web pages. Markup language is used to define the text document within tag which defines the structure of web pages.",
+        content: "HTML Stands for (Hypertext Markup Language.) HTML is the language used to create webpages. (Hypertext) refers to the hyperlinks that an HTML page may contain. (Markup language) refers to the way tags are used to define the page layout and elements within the page.",
         pdf_url: "https://websitesetup.org/wp-content/uploads/2015/11/Infopgraphic-CanvasCheatSheet-Final2.pdf"
     },
     {

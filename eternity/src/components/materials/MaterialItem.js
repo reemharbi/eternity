@@ -9,13 +9,12 @@ export default class MaterialItem extends Component {
         return (
                   <Card>
                         {<Modal trigger={<Image src={this.props.material.img_url}  wrapped ui={false} />}>
-                                <Modal.Header>Material</Modal.Header>
+                                <Modal.Header>{this.props.material.title}</Modal.Header>
                                 <Modal.Content image>
                                 <Image wrapped size='medium' src={this.props.material.img_url} />
                                 <Modal.Description>
-                                        <Header><h2>{this.props.material.title}</h2></Header>
                                         <p>{this.props.material.content}</p>
-                                        <p>Click <a target="_blank" href={this.props.material.pdf_url}>here</a> to view some resource</p>
+                                        <Header><h3><a target="_blank" href={this.props.material.pdf_url}>Click here to view some resource</a></h3></Header>
                                 </Modal.Description>
                                 </Modal.Content>
                         </Modal>}
