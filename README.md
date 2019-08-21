@@ -9,7 +9,7 @@
 ## Motivation
 This website was made as a way to remember all the great memories and members of the SEI - Eternity course. It also serves as a great reference to all the course materials that were took in the duration of it
 
-:heart:
+<p align="center"> :heart: </p>
 
 
 
