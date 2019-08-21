@@ -19,16 +19,22 @@ export default class ProjectTag extends Component {
               color = "green";
               break;
             case "Ruby on Rails":
-              color = "Brown";
+              color = "orange";
               break;
             case "React":
               color = "cyan";
+              break;
+            case "Bootstrap":
+              color = "violet"
+              break;
+            case "Postgresql":
+              color = "olive"
               break;
               default:
                 color =""
           }
         return (
-            <Label color={color} tag>{this.props.tag} </Label>
+            <Label color={color}>{this.props.tag} </Label>
         )
     }
 }

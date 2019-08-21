@@ -15,16 +15,18 @@ import materials from './components/materials/MaterialsData';
 import Family from './components/family/Family';
 import Timeline from './components/timeline/Timeline';
 import timeline from './components/timeline/TimelineData';
+import secretLogo from './images/secret_logo.gif';
+import aaaLogo from './images/aaa_logo.png';
+import pikminLogo from './images/pikmin_logo.png';
 
 import {
   Container,
-  Dropdown,
   Image,
   Menu,
   Visibility,
   List,
   Segment
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 
 const menuStyle = {
   border: 'none',
@@ -58,13 +60,51 @@ export default class App extends Component {
       searchValue: '',
       projects: [],
       displayedProjects: [],
-      instructors:[]
+      instructors:[],
+      students:[],
+      visibleLogo: logo
     }
   }
 
   handleSearchValue = (e) => {
     const newSearchValue = e.target.value;
 
+
+    if (newSearchValue.toLowerCase() === "sei" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: secretLogo,
+
+          };   
+      }) 
+    }
+
+    if (newSearchValue.toLowerCase() === "eternity" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: logo,
+
+          };   
+      }) 
+    }
+
+    if (newSearchValue.toLowerCase() === "aaa" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: aaaLogo,
+
+          };   
+      }) 
+    }
+
+    if (newSearchValue.toLowerCase() === "pikmin" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: pikminLogo,
+
+          };   
+      }) 
+    }
     this.setState( (prevState, props) => {
       const filteredProjects = prevState.projects.filter( project => {
         return (
@@ -84,6 +124,7 @@ export default class App extends Component {
 
     const projectsRef = firebase.database().ref('projects');
     const instructorsRef = firebase.database().ref('instructors');
+    const studentsRef = firebase.database().ref('students');
     projectsRef.on('value', (snapshot) => {
       let newState = snapshot.val();
 
@@ -105,12 +146,22 @@ export default class App extends Component {
       })
     });
 
+    studentsRef.on('value', (snapshot) => {
+      let newState = snapshot.val();
+
+      this.setState((prevState, props) => {
+        return {
+          students: newState,
+        }
+      })
+    });
+
   }
   render() {
     const { menuFixed, activeItem } = this.state
 
     return (
-          <Router>
+        <Router>
         <Visibility
           onBottomPassed={this.stickTopMenu}
           onBottomVisible={this.unStickTopMenu}
@@ -123,7 +174,7 @@ export default class App extends Component {
           >
             <Container text>
               <Menu.Item>
-                <Image size='small' src={logo} />
+                <Image size='small' src={this.state.visibleLogo} />
               </Menu.Item>
               <Menu.Item header ><Link to="/" className='link'>Eternity</Link></Menu.Item>
               <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
@@ -131,25 +182,6 @@ export default class App extends Component {
               <Menu.Item as='a'><Link to="/family" className='link'>The Family</Link></Menu.Item>
               <Menu.Item as='a'><Link to="/timeline" className='link'>Timeline</Link></Menu.Item>
              
-              <Menu.Menu position='right'>
-                <Dropdown text='Dropdown' pointing className='link item'>
-                  <Dropdown.Menu>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Header>Header Item</Dropdown.Header>
-                    <Dropdown.Item>
-                      <i className='dropdown icon' />
-                      <span className='text'>Submenu</span>
-                      <Dropdown.Menu>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu.Menu>
             </Container>
           </Menu>
         </Visibility>
@@ -159,27 +191,18 @@ export default class App extends Component {
           {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
           <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} {...props} />} />
           <Route path='/materials' component={() => <Materials materials={materials} />} />
-          <Route path='/family' component={() => <Family instructors={this.state.instructors} />} />
+          <Route path='/family' component={() => <Family instructors={this.state.instructors} students={this.state.students}/>} />
           <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
         </div>
 
-        <Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} vertical>
+<Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} className="site-footer" vertical>
 <Container textAlign='center'>
   <Image src={logo_1} centered size='mini' />
   <List horizontal inverted divided link size='small'>
-    <List.Item as='a' href='#'>
-      Site Map
+    <List.Item>
+      Made with ♥ by The Pikmin
     </List.Item>
-    <List.Item as='a' href='#'>
-      Contact Us
-    </List.Item>
-    <List.Item as='a' href='#'>
-      Terms and Conditions
-    </List.Item>
-    <List.Item as='a' href='#'>
-      Privacy Policy
-    </List.Item>
-  </List>
+    </List>
 </Container>
 </Segment>
 
