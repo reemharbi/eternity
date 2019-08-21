@@ -24,11 +24,24 @@ This website was made as a way to remember all the great memories and members of
 - **Final Design**
 
 ![Home.png](https://i.postimg.cc/brMSYQNF/Screenshot-from-2019-08-21-20-03-29.png)
+
 ![Materials.png](https://i.postimg.cc/02wbdKNP/Screenshot-from-2019-08-21-18-47-27.png)
+
 ![Projects.png](https://i.postimg.cc/3xrjLZ02/Screenshot-from-2019-08-22-00-46-16.png)
+
 ![Instructors.png](https://i.postimg.cc/W3xSCJcT/Screenshot-from-2019-08-22-00-47-53.png)
+
 ![Students.png](https://i.postimg.cc/XvVfzkZw/Screenshot-from-2019-08-22-00-48-07.png)
+
 ![Timeline.png](https://i.postimg.cc/sDkKwW9c/Screenshot-from-2019-08-22-00-48-14.png)
+
+- **Easter Eggs**
+
+1- ![secret-logo.png](https://i.postimg.cc/rpmBLW3r/secret-logo.png)
+2- ![pikmin-logo.png](https://i.postimg.cc/CMDWYwPm/pikmin-logo.png)
+3- ![aaa-logo.png](https://i.postimg.cc/1z2jhdDk/aaa-logo.png)
+
+<h3 align="center">Try to catch them all! ✨</h3>
 
 - **Resources**
 
