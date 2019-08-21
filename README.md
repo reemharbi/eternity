@@ -66,10 +66,8 @@ This website was made as a way to remember all the great memories and members of
      width="200" />
      </p>
 
+
 <h3 align="center">Try to catch them all! ✨</h3>
-
-- **Resources**
-
 
 ---
 
