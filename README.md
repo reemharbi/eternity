@@ -44,7 +44,7 @@ This website was made as a way to remember all the great memories and members of
 - **Google Chrome Web Browser**: Was used to view the website
 - **jsoneditoronline.org**: Was used
 - **emojipedia.org**: Was used for emojis
-- **Axios**
+- **Axios**: for GET requests
 - **react-vertical-timeline-component**: Was used for the vertical timeline library
 - **animate.css**: Was used for text animations
 
