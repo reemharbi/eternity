@@ -25,7 +25,8 @@ import {
   Menu,
   Visibility,
   List,
-  Segment
+  Segment,
+  Divider
 } from 'semantic-ui-react';
 
 const menuStyle = {
@@ -169,11 +170,14 @@ export default class App extends Component {
               <Menu.Item as='a'><Link to="/projects" className='link'>Projects</Link></Menu.Item>
               <Menu.Item as='a'><Link to="/family" className='link'>The Family</Link></Menu.Item>
               <Menu.Item as='a'><Link to="/timeline" className='link'>Timeline</Link></Menu.Item>
+              
              
             </Container>
+          
           </Menu>
+          
         </Visibility>
-
+      
         <div>
           <Route exact path='/' component={Home} />
           {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
@@ -183,18 +187,14 @@ export default class App extends Component {
           <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
         </div>
 
-<Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} className="site-footer" vertical>
-<Container textAlign='center'>
-  <Image src={logo_1} centered size='mini' />
-  <List horizontal inverted divided link size='small'>
-    <List.Item>
-      Made with ♥ by The Pikmin
-    </List.Item>
-    </List>
-</Container>
-</Segment>
-
-
+        <div class="ui bottom fixed menu inverted centered">
+        <Container style={{ padding: '2em 0em' }} vertical >
+        
+        <p className="pikmin"><Image src={logo_1} size='mini' centered />
+        
+        Made with ♥ by The Pikmin</p>
+        </Container>
+        </div>
       </Router>
     )
   }
