@@ -10,7 +10,7 @@ import StudentsList from "./studentsList";
 export default class Family extends Component {
     render() {
         return (
-            <Container textAlign='center'>     
+            <Container className="family" textAlign='center'>     
 
             <Divider horizontal>The Family</Divider>
             <InstructorsList instructors={this.props.instructors}/>
