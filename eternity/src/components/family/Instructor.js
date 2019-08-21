@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Grid, Image, Card, Icon, Segment } from 'semantic-ui-react';
-import './Instructor.css';
-  
+import { Grid, Image, Card, Icon, Segment } from 'semantic-ui-react'
+import '../../App.css'
+import './Instructor.css'  
+
 export default class Instructor extends Component {
     render() {
         return (
@@ -10,7 +11,7 @@ export default class Instructor extends Component {
         <Card fluid >             
         
       <Segment.Group>
-      <Segment>
+      <Segment className="title">
       <h2>{this.props.instructor.title}</h2>  
       </Segment>
       <Segment.Group horizontal>

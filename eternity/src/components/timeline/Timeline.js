@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TimelineItem from './TimelineItem';
 import { Container, Image, Divider } from 'semantic-ui-react';
-import logo from '../../images/Triskelion_B.png'
+import logo from '../../images/Triskelion_A.png'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import './Timeline.css';
@@ -15,7 +15,7 @@ export default class Timeline extends Component {
             return <VerticalTimelineElement 
                     className="vertical-timeline-element--work"
                     date={timeline.week}
-                    iconStyle={{ background: '#83A7E4', color: '#000' }} 
+                    iconStyle={{ background: '#999999', color: '#000' }} 
                     icon={<Image size="mini" src={logo} centered="true" className="icon" />}>
                     
                     <TimelineItem key={index} timeline={timeline} /></VerticalTimelineElement>;
