@@ -19,6 +19,7 @@ import timeline from './components/timeline/TimelineData';
 import secretLogo from './images/secret_logo.gif';
 import aaaLogo from './images/aaa_logo.png';
 import pikminLogo from './images/pikmin_logo.png';
+import saraCatsLogo from '/images/sara_cats.jpg';
 
 import {
   Container,
@@ -107,6 +108,15 @@ export default class App extends Component {
           };   
       }) 
     }
+    if (newSearchValue.toLowerCase() === "sara" ){
+      this.setState( (prevState, props) => {  
+          return {
+            visibleLogo: saraCatsLogo,
+
+          };   
+      }) 
+    }
+    
     this.setState( (prevState, props) => {
       const filteredProjects = prevState.projects.filter( project => {
         return (
