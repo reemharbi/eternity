@@ -1,49 +1,28 @@
 const timeline = [
     {
         week:"week 1",
-        title:"title",
-        location: "Eternity class",
-        content:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.", 
-        addedBy: "Sara"
-    },
-    {
-        week:"week 2",
-        title:"title",
-        location: "Eternity class",
-        content:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.", 
-        addedBy: "Bedour"
-    },
-    {
-        week:"week 3",
-        title:"title",
-        location: "Eternity class",
-        content:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.", 
+        title:"Introduction Day - June 16,2019",
+        location: "First HQ",
+        content: "The start of this journey begins here. First day at class we had to introduce strangers instead of ourselves.", 
         addedBy: "Reem"
     },
     {
-        week:"week 4",
-        title:"title",
-        location: "Eternity class",
-        content:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.", 
-        addedBy: "Hazim"
-    },
-    {
         week:"week 5",
-        title:"title",
-        location: "Eternity class",
-        content:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.", 
-        addedBy: "Sara"
+        title:"Happy Birthday AlAnoud! ❤️ - July 18,2019",
+        location: "WDI Ship of the Dessert Class",
+        content: "After a messy attempt of planning the surprise we managed to pull off a great birthday party!", 
+        addedBy: "Reem"
     },
     {
-        week:"week 6",
-        title:"title",
+        week:"week 8",
+        title:"Class Trip 🍔",
         location: "Eternity class",
-        content:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.", 
-        addedBy: "Sara"
+        content:"Hajj vacation started...for normal people. Ofcourse we're SEI, we're not normal people. We are hungry for knowledge and so we still go to class. However, the entire foodcourt is closed... time for a road trip!", 
+        addedBy: "Reem"
     },
     {
-        week:"week 7",
-        title:"title",
+        week:"week 3",
+        title:"Tic Tac Toe ",
         location: "Eternity class",
         content:"Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.", 
         addedBy: "Sara"
