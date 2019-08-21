@@ -16,7 +16,7 @@ export default class Home extends Component {
 
         <Container className="hometext" textAlign='center'>
         <Divider horizontal></Divider>        
-        <h1>" The experience of eternity right here and now is the function of life. Heaven is not the place to have the experience; here is the place to have the experience "</h1>
+        <h1 className="animated infinite pulse slowest">" The experience of eternity right here and now is the function of life. Heaven is not the place to have the experience; here is the place to have the experience "</h1>
         
         </Container>
 
