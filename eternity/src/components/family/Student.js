@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Icon, Image, List, Divider, Segment, Label} from 'semantic-ui-react'
+import { Card, Icon, Image, Popup, Divider, Segment, Label} from 'semantic-ui-react'
 import axios from 'axios';
 
 import question from './zodiac/question.svg';
@@ -35,7 +35,7 @@ export default class Student extends Component {
     }
     render() {
         let zodiacSign;
-
+        // Zodiac Icons
         switch (this.props.student.zodiac_sign) {
             case "Aquarius":
                 zodiacSign = aquarius;
@@ -79,6 +79,7 @@ export default class Student extends Component {
           }
 
         let perColor;
+        // Personality label color
         switch (this.props.student.personality_type) {
 
             case "Advocate":
@@ -121,11 +122,12 @@ export default class Student extends Component {
                 <Card.Content>
 
                 
+                
 
         <Segment.Group>
         <Segment> <h5>Team:</h5><p>{this.props.student.team}</p> </Segment>
         <Segment> <h5>Personality Type:</h5><Label color={perColor} >{this.props.student.personality_type}</Label></Segment>
-        <Segment> <h5>Zodiac Sign:</h5><Image src= {zodiacSign} size='tiny' /> </Segment>
+        <Segment> <h5>Zodiac Sign:</h5> <Popup content={this.props.student.zodiac_sign} trigger={<Image src= {zodiacSign} size='tiny' />} /> </Segment>
 
       </Segment.Group>
       
