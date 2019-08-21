@@ -28,22 +28,25 @@ This website was made as a way to remember all the great memories and members of
 
 ### Future Plans:
 - Building games to add as easter eggs that are triggered on certain events.
-- Adding projects 3 and 4 to projects component.
+- Adding projects 3 and 4 to the students projects component.
 
 
 ---
 
 ### Technologies Used:
-- **Reactjs**
-- **React Semantic-ui**
-- **Firebase**
-- **Monday.com**
-- **Visual Studio**
-- **Source Control**
-- **loading.io**
-- **Google Chrome Web Browser**
-- **jsoneditoronline.org**
-- 
+- **Reactjs**: The website was built on Reactjs
+- **React Semantic-ui**: The library used for styling
+- **Firebase**: Was used to create an API to store database
+- **Monday.com**: Was used for team communication and project timeline
+- **Visual Studio**: Was used for coding
+- **Source Control**: was used to manage commit versoins 
+- **loading.io**: Was used to create the animated logos for the website
+- **Google Chrome Web Browser**: Was used to view the website
+- **jsoneditoronline.org**: Was used
+- **emojipedia.org**: Was used for emojis
+- **Axios**
+- **react-vertical-timeline-component**: Was used for the vertical timeline library
+- **animate.css**: Was used for text animations
 
 ---
 
