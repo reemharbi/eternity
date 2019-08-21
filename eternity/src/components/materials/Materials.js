@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MaterialItem from './MaterialItem'
+import { Card, Container } from 'semantic-ui-react';
 
 export default class Materials extends Component {
     render() {
@@ -9,9 +10,9 @@ export default class Materials extends Component {
         })
 
         return (
-            <div>
-                {materialsList}
-            </div>
+            <Container textAlign='center'>    
+                <Card.Group centered='true'>{materialsList}</Card.Group>
+            </Container>
         )
     }
 }
