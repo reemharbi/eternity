@@ -120,6 +120,13 @@ export default class Student extends Component {
           if (this.props.student.name === 'Eman Yahya'){
             isEman = false;
           }
+
+          let missing = null;
+
+          if (this.props.student.name === 'Waleed Mastour'||
+              this.props.student.name === 'Turki Almalki' ){
+                  missing = { color: 'red', content: 'MISSING', ribbon: true}
+              }
         return (
             <Popup
             content= {<Image src={eman} size='tiny'/>}
@@ -129,7 +136,9 @@ export default class Student extends Component {
                 <Segment inverted color={perColor}>  
                 <Card.Content  header={this.props.student.name} />
                 </Segment>
-                <Image src={this.state.git.avatar_url}  size='mini' wrapped ui={false}/>
+                <Image src={this.state.git.avatar_url}  
+                label={missing}
+                size='mini' wrapped ui={false}/>
                 <Card.Content>
 
                 
