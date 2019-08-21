@@ -11,7 +11,7 @@ export default class StudentsList extends Component {
             <>
                 <Divider horizontal>Students</Divider>
 
-                <Card.Group>
+                <Card.Group centered='true'>
                 {studentsList}
                 </Card.Group>
             </>    
