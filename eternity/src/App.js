@@ -149,7 +149,7 @@ export default class App extends Component {
     const { menuFixed, activeItem } = this.state
 
     return (
-          <Router>
+        <Router>
         <Visibility
           onBottomPassed={this.stickTopMenu}
           onBottomVisible={this.unStickTopMenu}
@@ -183,7 +183,7 @@ export default class App extends Component {
           <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
         </div>
 
-        <Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} vertical>
+        <Segment inverted style={{ margin: '5em 0em 0em', padding: '2em 0em' }} className="footer" vertical>
 <Container textAlign='center'>
   <Image src={logo_1} centered size='mini' />
   <List horizontal inverted divided link size='small'>
