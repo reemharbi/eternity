@@ -2,7 +2,7 @@ const materials = [
     {
         title: "HTML",
         img_url: "https://icon-library.net/images/html5-icon/html5-icon-13.jpg",
-        content: "some content...",
+        content: "HTML stands for Hyper Text Markup Language. It is used to design web pages using markup language. HTML is the combination of Hypertext and Markup language. Hypertext defines the link between the web pages. Markup language is used to define the text document within tag which defines the structure of web pages.",
         pdf_url: "https://websitesetup.org/wp-content/uploads/2015/11/Infopgraphic-CanvasCheatSheet-Final2.pdf"
     },
     {
@@ -14,13 +14,13 @@ const materials = [
     {
         title: "JavaScript",
         img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png",
-        content: "some content...",
+        content: "JavaScript is a client scripting language which is used for creating web pages. It is a standalone language developed in Netscape. It is used when a webpage is to be made dynamic and add special effects on pages like rollover, roll out and many types of graphics.",
         pdf_url: "https://files.monday.com/4511086/resources/38456569/wsu-js-cheat-sheet.pdf?AWSAccessKeyId=AKIAIBXETYZ5GWEDGU2Q&Expires=1566391338&Signature=Mi8cZA7Pzil%2FvHwhtV7QgDOh%2FcI%3D"
     },
     {
         title: "Ruby on Rails",
         img_url: "https://pbs.twimg.com/media/CZGHPChUAAA3jqE.png",
-        content: "some content...",
+        content: "The Rails framework helps developers to build websites and applications, because it abstracts and simplifies common repetitive tasks. Rails is written in Ruby, the programming language which is also used alongside Rails. Ruby is to Rails as PHP is to Symfony and Zend, or as Python is to Django.",
         pdf_url: "https://slashrocket.io/cheatsheet/RailsBeginnerCheatSheet.pdf"
     },
     {
@@ -33,8 +33,8 @@ const materials = [
     {
         title: "Git",
         img_url: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
-        content: "some content...",
-        pdf_url: ""
+        content: "Git is the free and open source distributed version control system that's responsible for everything GitHub related that happens locally on your computer.",
+        pdf_url: "https://education.github.com/git-cheat-sheet-education.pdf"
     }
 ];
 
