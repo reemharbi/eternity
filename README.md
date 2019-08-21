@@ -34,15 +34,17 @@ This website was made as a way to remember all the great memories and members of
 
 ![Timeline.png](https://i.postimg.cc/sDkKwW9c/Screenshot-from-2019-08-22-00-48-14.png)
 
-- **Easter Eggs**
+---
 
-- <img src="https://i.postimg.cc/rpmBLW3r/secret-logo.png"
+## Easter Eggs
+
+ <img src="https://i.postimg.cc/rpmBLW3r/secret-logo.png"
      alt="Tri_logo"
      width="100" />   
-- <img src="https://i.postimg.cc/CMDWYwPm/pikmin-logo.png"
+ <img src="https://i.postimg.cc/CMDWYwPm/pikmin-logo.png"
      alt="Tri_logo"
      width="100" />
-- <img src="https://i.postimg.cc/1z2jhdDk/aaa-logo.png"
+ <img src="https://i.postimg.cc/1z2jhdDk/aaa-logo.png"
      alt="Tri_logo"
      width="100" />
 
