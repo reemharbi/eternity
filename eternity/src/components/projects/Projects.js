@@ -4,7 +4,6 @@ import Search from '../Search';
 
 import {
     Pagination,
-    Grid,
     Divider,
     Container
   } from 'semantic-ui-react'
@@ -36,7 +35,7 @@ export default class Projects extends Component {
         return (
    
 
-            <Container textAlign='center'>     
+            <Container textAlign='center' >     
                 <Divider horizontal>Projects</Divider>
                 <Search onChange={(v)=>this.onChange(v)} value={this.props.searchValue}/>
                
