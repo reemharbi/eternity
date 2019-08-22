@@ -70,9 +70,11 @@ export default class App extends Component {
       instructors:[],
       students:[],
       visibleLogo: logo,
-      azzam: false
+      azzam: false,
+      websiteAlive: true
     }
   }
+
   resetSearchValue = (e) => {
     this.setState( (prevState, props) => {  
       return {
@@ -160,6 +162,14 @@ export default class App extends Component {
     }) 
   }
 
+  killWebsite =(e)=> {
+    
+    this.setState((prevState, props) => {
+      return {
+        websiteAlive:false
+      }
+    })
+  }
   componentDidMount(){
 
     const projectsRef = firebase.database().ref('projects');
@@ -199,55 +209,64 @@ export default class App extends Component {
   }
   render() {
     const { menuFixed, activeItem } = this.state
+    
+    
 
+   if (this.state.websiteAlive){
     return (
-        <HashRouter basename='/eternity'>
-        <Visibility
-          onBottomPassed={this.stickTopMenu}
-          onBottomVisible={this.unStickTopMenu}
-          once={false}
+      <HashRouter basename='/eternity'>
+      <Visibility
+        onBottomPassed={this.stickTopMenu}
+        onBottomVisible={this.unStickTopMenu}
+        once={false}
+      >
+        <Menu
+          borderless
+          fixed={menuFixed ? 'top' : undefined}
+          style={menuFixed ? fixedMenuStyle : menuStyle}
         >
-          <Menu
-            borderless
-            fixed={menuFixed ? 'top' : undefined}
-            style={menuFixed ? fixedMenuStyle : menuStyle}
-          >
-            <Container text>
-              <Menu.Item>
-                <Image size='small' src={this.state.visibleLogo} />
-              </Menu.Item>
-              <Menu.Item header><Link to="/" className='link'>Eternity</Link></Menu.Item>
-              <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
-              <Menu.Item as='a'><Link to="/projects" className='link'>Projects</Link></Menu.Item>
-              <Menu.Item as='a'><Link to="/family" className='link'>The Family</Link></Menu.Item>
-              <Menu.Item as='a'><Link to="/timeline" className='link'>Timeline</Link></Menu.Item>
-              
-             
-            </Container>
-          
-          </Menu>
-          
-        </Visibility>
-      
-        <div>
-          <Route exact path='/' component={Home} />
-          {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
-          <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} azzam={this.state.azzam} reset={this.resetSearchValue} {...props} />} />
-          <Route path='/materials' component={() => <Materials materials={materials} />} />
-          <Route path='/family' component={() => <Family instructors={this.state.instructors} students={this.state.students}/>} />
-          <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
-        </div>
+          <Container text>
+            <Menu.Item>
+              <Image size='small' src={this.state.visibleLogo} />
+            </Menu.Item>
+            <Menu.Item header><Link to="/" className='link'>Eternity</Link></Menu.Item>
+            <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
+            <Menu.Item as='a'><Link to="/projects" className='link'>Projects</Link></Menu.Item>
+            <Menu.Item as='a'><Link to="/family" className='link'>The Family</Link></Menu.Item>
+            <Menu.Item as='a'><Link to="/timeline" className='link'>Timeline</Link></Menu.Item>
+            
+           
+          </Container>
+        
+        </Menu>
+        
+      </Visibility>
+    
+      <div>
+        <Route exact path='/' component={Home} />
+        {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
+        <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} azzam={this.state.azzam} reset={this.resetSearchValue} {...props} />} />
+        <Route path='/materials' component={() => <Materials materials={materials} />} />
+        <Route path='/family' component={() => <Family instructors={this.state.instructors} students={this.state.students}/>} />
+        <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
+      </div>
 
-        <div class="ui bottom fixed menu inverted centered">
-        <Container style={{ padding: '2em 0em' }} vertical >
-        
-        <p className="pikmin"><Image src={logo_1} size='mini' centered />
-        
-        Made with ♥ by The Pikmin</p>
-        </Container>
-        </div>
-      </HashRouter>
-    )
+      <div class="ui bottom fixed menu inverted centered">
+      <Container style={{ padding: '2em 0em' }} vertical >
+      
+      <p className="pikmin"><Image src={logo_1} size='mini' centered />
+      
+      Made with ♥ by The Pikmin</p>
+      </Container>
+      </div>
+    </HashRouter>
+  )
+   } else {
+     return(
+       <h1>Website is dead</h1>
+     )
+   }
+    
   }
 }
 
