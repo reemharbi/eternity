@@ -20,7 +20,7 @@ import secretLogo from './images/secret_logo.gif';
 import aaaLogo from './images/aaa_logo.png';
 import pikminLogo from './images/pikmin_logo.png';
 import saraCatsLogo from './images/sara_cats.jpg';
-
+import ModelAzzam from './components/ModelAzzam';
 import {
   Container,
   Image,
@@ -28,7 +28,11 @@ import {
   Visibility,
   List,
   Segment,
-  Divider
+  Divider,
+  Modal,
+  Icon,
+  Button,
+  Header
 } from 'semantic-ui-react';
 
 const menuStyle = {
@@ -65,10 +69,18 @@ export default class App extends Component {
       displayedProjects: [],
       instructors:[],
       students:[],
-      visibleLogo: logo
+      visibleLogo: logo,
+      azzam: false
     }
   }
-
+  resetSearchValue = (e) => {
+    this.setState( (prevState, props) => {  
+      return {
+        searchValue:'',
+        azzam: false
+      };   
+  }) 
+  }
   handleSearchValue = (e) => {
     const newSearchValue = e.target.value;
 
@@ -116,7 +128,22 @@ export default class App extends Component {
           };   
       }) 
     }
-    
+    if (newSearchValue.toLowerCase() === "azzam" ){
+      this.setState( (prevState, props) => {  
+        return {
+          azzam: true,
+
+        };   
+    }) 
+    }else{
+      this.setState( (prevState, props) => {  
+        return {
+          azzam: false,
+
+        };   
+    }) 
+    }
+
     this.setState( (prevState, props) => {
       const filteredProjects = prevState.projects.filter( project => {
         return (
@@ -205,7 +232,7 @@ export default class App extends Component {
         <div>
           <Route exact path='/' component={Home} />
           {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
-          <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} {...props} />} />
+          <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} azzam={this.state.azzam} reset={this.resetSearchValue} {...props} />} />
           <Route path='/materials' component={() => <Materials materials={materials} />} />
           <Route path='/family' component={() => <Family instructors={this.state.instructors} students={this.state.students}/>} />
           <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />

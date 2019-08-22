@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProjectsList from './projectsList';
 import Search from '../Search';
 import './Projects.css';
-
+import ModelAzzam from './../ModelAzzam';
 import {
     Pagination,
     Divider,
@@ -24,7 +24,6 @@ export default class Projects extends Component {
     }
 
     handlePaginationChange = (e, { activePage }) => {
-          console.log(activePage);
           this.setState({ activePage })}
 
     render() {
@@ -33,12 +32,20 @@ export default class Projects extends Component {
             boundaryRange,
             siblingRange,
           } = this.state
+
+          let showModel = null;
+
+          if (this.props.azzam){
+              showModel= <ModelAzzam/>
+          }
         return (
    
 
-            <Container className="project" textAlign='center'>     
+            <Container className="project" textAlign='center'>  
+                        {showModel}
+   
                 <Divider horizontal>Projects</Divider>
-                <Search onChange={(v)=>this.onChange(v)} value={this.props.searchValue}/>
+                <Search onChange={(v)=>this.onChange(v)} value={this.props.searchValue} reset={this.props.reset}/>
                
           <Divider />
                 <ProjectsList projects={this.props.projects} activePage={this.state.activePage}/>
