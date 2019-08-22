@@ -312,7 +312,7 @@ export default class App extends Component {
         >
           <Container text>
             <Menu.Item>
-              <Image size='small' src={this.state.visibleLogo} />
+            <Link to="/"> <Image size='small' src={this.state.visibleLogo} /> </Link>
             </Menu.Item>
             <Menu.Item header><Link to="/" className='link'>Eternity</Link></Menu.Item>
             <Menu.Item as='a'> <Link to="/materials" className='link'>Materials</Link></Menu.Item>
