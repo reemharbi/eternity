@@ -13,7 +13,7 @@ export default class Family extends Component {
         return (
             <Container textAlign='center' className="family">     
             <Divider horizontal>The Family</Divider>
-            <InstructorsList instructors={this.props.instructors}/>
+            <InstructorsList instructors={this.props.instructors} usman={this.props.usman}/>
             <StudentsList students={this.props.students}/>
             </Container>
         )

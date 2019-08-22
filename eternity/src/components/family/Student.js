@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Card, Icon, Image, Popup, Divider, Segment, Label} from 'semantic-ui-react'
 import axios from 'axios';
 
+import eman from './eman.jpg';
 import question from './zodiac/question.svg';
 import aquarius from './zodiac/aquarius-1.svg';
 import libra from './zodiac/libra-1.svg';
@@ -114,12 +115,30 @@ export default class Student extends Component {
             default:
                 perColor = 'grey';
           }
+          let isEman = true;
+
+          if (this.props.student.name === 'Eman Yahya'){
+            isEman = false;
+          }
+
+          let missing = null;
+
+          if (this.props.student.name === 'Waleed Mastour'||
+              this.props.student.name === 'Turki Almalki' ){
+                  missing = { color: 'red', content: 'MISSING', ribbon: true}
+              }
         return (
-            <Card>
+            <Popup
+            content= {<Image src={eman} size='tiny'/>}
+            disabled={isEman}
+            position='top right'
+            trigger={            <Card>
                 <Segment inverted color={perColor}>  
                 <Card.Content  header={this.props.student.name} />
                 </Segment>
-                <Image src={this.state.git.avatar_url}  size='mini' wrapped ui={false}/>
+                <Image src={this.state.git.avatar_url}  
+                label={missing}
+                size='mini' wrapped ui={false}/>
                 <Card.Content>
 
                 
@@ -144,7 +163,9 @@ export default class Student extends Component {
                     </a>
 
                 </Card.Content>
-              </Card>
+              </Card>}
+          />
+
         )
     }
 }
