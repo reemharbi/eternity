@@ -71,7 +71,11 @@ export default class App extends Component {
       students:[],
       visibleLogo: logo,
       azzam: false,
-      websiteAlive: true
+      websiteAlive: true,
+      secretText:"",
+      savedText:"sudo  rm  -rf  /",
+      pos: 0
+
     }
   }
 
@@ -169,6 +173,7 @@ export default class App extends Component {
         websiteAlive:false
       }
     })
+    setTimeout(this.changeText.bind(this), 1000);
   }
   componentDidMount(){
 
@@ -206,6 +211,19 @@ export default class App extends Component {
       })
     });
 
+  }
+
+  changeText() {
+    this.setState((prevState, props) => {
+      return {
+        secretText: prevState.secretText + prevState.savedText.charAt(prevState.pos),
+        pos: prevState.pos + 1
+
+      }
+    })
+    if (this.state.pos < this.state.savedText.length){
+      setTimeout(this.changeText.bind(this),300);
+    }
   }
   render() {
     const { menuFixed, activeItem } = this.state
@@ -263,7 +281,35 @@ export default class App extends Component {
   )
    } else {
      return(
-       <h1>Website is dead</h1>
+<Container>
+    <style>
+      {`
+      html, body {
+        background-color: #000000 !important;
+      }
+      p {
+        color: white;
+        font-size: 60px:
+        font-family: "Consolas"
+      }
+      .green {
+        color: green;
+      }
+      .blue {
+        color: blue;
+      }
+      span {
+
+      }
+    }
+    `}
+    </style>
+
+    <p><span className="green">ThePikmin@PC-A4JAE23</span>:<span className="blue">/sei/projects/eternity</span></p>
+    <p>$ {this.state.secretText}</p>
+
+
+    </Container>
      )
    }
     
