@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Label,Popup, Image, Card, Icon, Segment } from 'semantic-ui-react';
+import { Label,Popup, Image, Card, Icon, Segment,Button, Header, Modal } from 'semantic-ui-react';
 import './Instructor.css';
 
 import question from './zodiac/question.svg';
@@ -18,10 +18,23 @@ import virgo from './zodiac/virgo-1.svg';
   
 export default class Instructor extends Component {
     render() {
-
         let instAge = this.props.instructor.age;
         if (this.props.instructor.name === 'Usman Bashir'){
-            instAge= "dont try this";
+            instAge=   <Modal trigger={<p>Undefined</p>} closeIcon>
+            <Header icon='user secret' content="D̶̲̘͔̗̠͓̆̆̎̉͑̈́̂͜͠ơ̴͕̒ņ̴̰͉̺̭̩͛̽̓̓'̶̨͉̗̞̳̹͖̣̇̇͑̑̍̚ť̷̢̲̥̣̻͕.̴̲̞̘̳̣̘͚̾ͅ.̵͇̠̺̫̙̟̇.̸͓̜̼̟͚̅̅͝͝.̴̨̮̹̩̠̞̳̅̂͆̊͠ ̸͖̔͛́̉̕͘š̸̢̥͙͉͎͗͑͋͑t̶̢̯́̊͛͆̈́͂͛̕a̶̡̧̩̤͖̬̱̍̿̆̿y̶̳̝̝͖̌̑̅͂ ̷̘̔̋̈̈́̈́̓͘ḁ̵̧̺͔͒̈́̃͘̚͝w̸̧̯͍̜̉̃a̶̢͎̻͗̈́̾̄̚ẙ̴̫̻̎͘̕͠͝.̴͂̾̓́͠ͅ.̴̧͎͔̺͙͉͇͐͐̚̚.̵͙͉͚̰̗̔͐ ̴̛̣̜̪̟̟̪̣̽͒͒̊͠l̸͔̳̯̓͋͑͒͘ẽ̴͚̿̈́̿̿̓̏a̷̧͛̓v̴̥̱͈͉͓̗́̏͑̂̓e̵͚̾̒ ̸̙̰̩̹͙̫͌͊̏̆̉͝͠b̶͈͆͒̈͘ē̴̬̟̘̪̹̈̔̐͘̚͜͠f̷̢̰̆̅̆̍͑̋͑͜͜o̸̝̥̹͇̺͚̺̿̈́̒͠͝r̶͕̓̎̆̏͆̿̅͠é̴̟̝̻͚̳͆͑̀̕͝ ̸̜̍̏͛̔̓͘͠i̶̢͙̖̘̤͔̊͋͊͂͒͑͝ẗ̸̳̠́̈́̈́̔͠'̸̨̥̲̬̮͉̓͒̽͒̋s̶̼̓̃̎̎̆͑̈́̕ ̶̛̭͖̝͌ṭ̸̩̿̈̋͂̃̃͠ơ̶͈̫͓̭̆͒ͅo̸̠̹̪͚̭̠̒̂͜ ̶̰̜͉̟͚̇̓͂͠͠l̵̢̜̹͍͇̞͚͊̐̽͆̿̅̍̚͜á̴̤͌́̔t̶̞͕͈̗̠̗̓ȩ̷̭̫͎̎̓̃̈́͘͘ͅ"/>
+            <Modal.Content>
+              <p>
+                Are you sure you want to try to learn what shall remain unknown?
+              </p>
+            </Modal.Content>
+            <Modal.Actions>
+              <Button color='purple'
+              onClick={this.props.usman}>
+                <Icon name='cloudscale' /> Yes
+              </Button>
+
+            </Modal.Actions>
+          </Modal>
         }
           let zodiacSign;
         // Zodiac Icons
