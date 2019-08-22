@@ -18,6 +18,11 @@ import virgo from './zodiac/virgo-1.svg';
   
 export default class Instructor extends Component {
     render() {
+
+        let instAge = this.props.instructor.age;
+        if (this.props.instructor.name === 'Usman Bashir'){
+            instAge= "dont try this";
+        }
           let zodiacSign;
         // Zodiac Icons
         switch (this.props.instructor.zodiac_sign) {
@@ -113,7 +118,7 @@ export default class Instructor extends Component {
         <Segment>
         <Segment.Group>
         <Segment inverted> <h4>{this.props.instructor.title}</h4> </Segment>
-        <Segment color='black'> <h5>Age:</h5><p>{this.props.instructor.age}</p> </Segment>
+        <Segment color='black'> <h5>Age:</h5><p>{instAge}</p> </Segment>
         <Segment> <h5>Personality Type:</h5><Label color={perColor} >{this.props.instructor.personality_type}</Label> </Segment>
         <Segment centered> <h5>Zodiac Sign:</h5><Popup content={this.props.instructor.zodiac_sign} trigger={<Image src= {zodiacSign} size='small' centered="true"/>}/></Segment>
       </Segment.Group>

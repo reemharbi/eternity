@@ -247,7 +247,7 @@ export default class App extends Component {
         {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
         <Route path='/projects' render={(props) => <Projects projects={this.state.displayedProjects} onChange={this.handleSearchValue} searchValue={this.state.searchValue} azzam={this.state.azzam} reset={this.resetSearchValue} {...props} />} />
         <Route path='/materials' component={() => <Materials materials={materials} />} />
-        <Route path='/family' component={() => <Family instructors={this.state.instructors} students={this.state.students}/>} />
+        <Route path='/family' component={() => <Family instructors={this.state.instructors} students={this.state.students} usman={this.killWebsite}/>} />
         <Route path='/timeline' component={() => <Timeline timeline={timeline} />} />
       </div>
 
