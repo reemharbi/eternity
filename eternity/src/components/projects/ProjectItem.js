@@ -2,10 +2,55 @@ import React, { Component } from 'react'
 import './ProjectItem.css';
 import PosterImage from './PosterImage';
 import ProjectTag from './ProjectTag';
-import { Card, Icon, Image, CardContent, Label } from 'semantic-ui-react'
+import { Card, Icon, Image, Popup, Label, List } from 'semantic-ui-react'
 
 export default class ProjectItem extends Component {
     render() {
+      let labelColor = "";
+      let byIcon = "user";
+      // team project or not
+      let by = this.props.project.by[0];
+      if (this.props.project.by.length > 1){
+        byIcon = "users";
+        if (this.props.project.team_name){
+          by = this.props.project.team_name;
+          switch (by){
+            case "The Pikmin":
+              labelColor = "pink";
+              break;
+            case "Devarriors":
+                labelColor = "olive";
+                break;
+            case "D-Coders":
+                labelColor = "green";
+                break;
+            case "AAA+":
+                labelColor = "red";
+                break;
+            case "The 4 Geeks":
+                labelColor = "teal";
+                break;
+            case "NAH":
+                labelColor = "blue";
+                break;
+            case "Code Black":
+                labelColor = "black";
+                break;
+                        }
+        }
+
+      }
+
+      // list of names for the popup
+      const byList = this.props.project.by.map((person, index) => {
+        return(
+              <List icon="user" key="index">
+                <List.Icon name='user' />
+                {person}
+              </List>
+              )
+      })        
+      // list of the tags 
         const tagsList = this.props.project.tags.map((tag, index) => {
             return <ProjectTag tag={tag} key={index}/>
         });
@@ -47,16 +92,22 @@ export default class ProjectItem extends Component {
     <Card.Content extra>
 
           <a href={this.props.project.git_url} target="_blank" >
-          <Icon name="github square" size="big"/>
+          <Icon name="github square"  size="big"/>
           </a>
 
           <a href={this.props.project.deployed_url} target="_blank" >
           <Icon name="play" size="big"/>
           </a>
-          <Label as='a' image>
-      <Icon name="user" />
-      {this.props.project.by}
-    </Label>
+          
+          <Popup trigger={
+            <Label as='a' color={labelColor} image>
+            <Icon name={byIcon} />
+              {by}
+            </Label>
+          }>
+            {byList}
+          </Popup>
+          
 
           
       </Card.Content>

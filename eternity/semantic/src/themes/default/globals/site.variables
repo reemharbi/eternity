@@ -220,7 +220,7 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@red              : #DB2828;
+@red              : #000000;
 @orange           : #F2711C;
 @yellow           : #FBBD08;
 @olive            : #B5CC18;
@@ -233,6 +233,10 @@
 @brown            : #A5673F;
 @grey             : #767676;
 @black            : #1B1C1D;
+@blueviolet       : #8A2BE2;
+@cyan             : #00FFFF;
+@lightsalmon      : #FFA07A
+
 
 /*---  Light Colors  ---*/
 @lightRed         : #FF695E;
