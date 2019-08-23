@@ -174,8 +174,10 @@ export default class App extends Component {
       const filteredProjects = prevState.projects.filter( project => {
         return (
           project.name.toLowerCase().includes(newSearchValue.toLowerCase()) ||
-          project.by[0].toLowerCase().includes(newSearchValue.toLowerCase()) ||
-          project.no == newSearchValue
+          project.by.some( person => {
+            return person.toLowerCase().includes(newSearchValue.toLowerCase())
+          }) ||
+          project.no == newSearchValue 
         )
       })
 
