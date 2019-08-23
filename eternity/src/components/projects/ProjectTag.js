@@ -22,10 +22,13 @@ export default class ProjectTag extends Component {
               color = "orange";
               break;
             case "React":
-              color = "cyan";
+              color = "violet";
               break;
+            case "Firebase":
+              color = "brown";
+            break;
             case "Bootstrap":
-              color = "violet"
+              color = "purple"
               break;
             case "Postgresql":
               color = "olive"
