@@ -12,12 +12,33 @@ export default class ProjectItem extends Component {
       let by = this.props.project.by[0];
       if (this.props.project.by.length > 1){
         byIcon = "users";
-        switch (this.props.project.by[0]){
-          case "Reem AlHarbi":
-            by = "The Pikmin";
-            labelColor = "pink";
-            break;
+        if (this.props.project.team_name){
+          by = this.props.project.team_name;
+          switch (by){
+            case "The Pikmin":
+              labelColor = "pink";
+              break;
+            case "Devarriors":
+                labelColor = "olive";
+                break;
+            case "D-Coders":
+                labelColor = "green";
+                break;
+            case "AAA+":
+                labelColor = "red";
+                break;
+            case "The 4 Geeks":
+                labelColor = "teal";
+                break;
+            case "NAH":
+                labelColor = "blue";
+                break;
+            case "Code Black":
+                labelColor = "black";
+                break;
+                        }
         }
+
       }
 
       // list of names for the popup
