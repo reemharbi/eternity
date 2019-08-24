@@ -9,7 +9,19 @@ import TimelineForm from './TimelineForm.js';
 import { userInfo } from 'os';
 
 export default class Timeline extends Component {
+
 	render() {
+		const showAddMemory = ()=> {
+			if (this.props.user && this.props.students) {
+				return this.props.students.some((student) => {
+					return student.git === this.props.user.login;
+				}) ? (
+					<Button basic color="teal" centered>
+						Add a New Memory
+					</Button>
+				) : null;
+			}
+		}
 		const allTimeline = this.props.timeline.map((timeline, index) => {
 			return (
 				<VerticalTimelineElement
@@ -27,11 +39,7 @@ export default class Timeline extends Component {
 			<Container className="timeline">
 				<div className="memories">
 					<Divider horizontal>Memories Timeline</Divider>
-					<Container textAlign="center">
-						<Button basic color="teal" centered>
-							Add a New Memory
-						</Button>
-					</Container>
+					<Container textAlign="center">{showAddMemory()}</Container>
 
 					<div className="test">
 						<Divider />
