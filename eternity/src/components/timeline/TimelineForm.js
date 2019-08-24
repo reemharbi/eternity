@@ -16,9 +16,14 @@ const options = [
 	{ key: '12', text: 'Week 12', value: 'week 12' }
 ];
 export default class TimelineForm extends Component {
+
+	onSubmitHandle = e => {
+		this.props.close();
+		this.props.handleSubmit(e);
+	}
 	render() {
 		return (
-			<Form onSubmit={this.props.handleSubmit}>
+			<Form onSubmit={this.onSubmitHandle}>
 				<Form.Field >
 					<label>Title</label>
 					<input

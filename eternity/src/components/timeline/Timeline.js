@@ -9,17 +9,25 @@ import TimelineForm from './TimelineForm.js';
 import ModelAzzam from '../ModelAzzam';
 
 export default class Timeline extends Component {
+	state = {
+		modalIsOpen: false
+	};
+	open = () => this.setState({ modalIsOpen: true });
+
+	close = () => this.setState({ modalIsOpen: false });
+
 	showAddMemory = () => {
 		if (this.props.user && this.props.students) {
 			const user = this.props.students.some((student) => {
 				return student.git === this.props.user.login;
 			});
 			if (user) {
-
 				return (
 					<Modal
+						open={this.state.modalIsOpen}
+						onClose={this.close}
 						trigger={
-							<Button basic color="teal" centered>
+							<Button basic color="teal" centered onClick={this.open}>
 								Add a New Memory
 							</Button>
 						}
@@ -34,6 +42,7 @@ export default class Timeline extends Component {
 								week={this.props.week}
 								handleChangeSelect={this.props.handleChangeSelect}
 								handleSubmit={this.props.handleSubmit}
+								close={this.close}
 							/>
 						</Modal.Content>
 					</Modal>
