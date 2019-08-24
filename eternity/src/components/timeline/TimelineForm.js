@@ -1,11 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Segment, Form, Checkbox, Button, Select, TextArea } from 'semantic-ui-react';
 
+const options = [
+	{ key: '1', text: 'Week 1', value: 'week 1' },
+	{ key: '2', text: 'Week 2', value: 'week 2' },
+	{ key: '3', text: 'Week 3', value: 'week 3' },
+	{ key: '4', text: 'Week 4', value: 'week 4' },
+	{ key: '5', text: 'Week 5', value: 'week 5' },
+	{ key: '6', text: 'Week 6', value: 'week 6' },
+	{ key: '7', text: 'Week 7', value: 'week 7' },
+	{ key: '8', text: 'Week 8', value: 'week 8' },
+	{ key: '9', text: 'Week 9', value: 'week 9' },
+	{ key: '10', text: 'Week 10', value: 'week 10' },
+	{ key: '11', text: 'Week 11', value: 'week 11' },
+	{ key: '12', text: 'Week 12', value: 'week 12' }
+];
 export default class TimelineForm extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+	render() {
+		return (
+			<Form>
+				<Form.Field>
+					<label>Title</label>
+					<input placeholder="Title" />
+				</Form.Field>
+				<Form.Field>
+					<label>Location</label>
+					<input placeholder="Location" />
+				</Form.Field>
+				<Form.Field control={Select} label="Week" options={options} placeholder="Week" />
+				<Form.Field control={TextArea} label="Content" placeholder="What happened that day? ..." />
+				<Button primary type="submit">
+					Submit
+				</Button>
+			</Form>
+		);
+	}
 }

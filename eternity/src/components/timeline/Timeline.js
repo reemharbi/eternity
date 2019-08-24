@@ -1,27 +1,36 @@
 import React, { Component } from 'react';
 import TimelineItem from './TimelineItem';
-import { Container, Image, Divider, Button } from 'semantic-ui-react';
+import { Container, Image, Divider, Button, Modal } from 'semantic-ui-react';
 import logo from '../../images/Triskelion_A.png';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import './Timeline.css';
 import TimelineForm from './TimelineForm.js';
-import { userInfo } from 'os';
+import ModelAzzam from '../ModelAzzam';
 
 export default class Timeline extends Component {
+	showAddMemory = () => {
+		if (this.props.user && this.props.students) {
+			return this.props.students.some((student) => {
+				return student.git === this.props.user.login;
+			}) ? (
+				<Modal
+					trigger={
+						<Button basic color="teal" centered>
+							Add a New Memory
+						</Button>
+					}
+				>
+					<Modal.Header textAlign="center">New Memory</Modal.Header>
+					<Modal.Content>
+						<TimelineForm />
+					</Modal.Content>
+				</Modal>
+			) : null;
+		}
+	};
 
 	render() {
-		const showAddMemory = ()=> {
-			if (this.props.user && this.props.students) {
-				return this.props.students.some((student) => {
-					return student.git === this.props.user.login;
-				}) ? (
-					<Button basic color="teal" centered>
-						Add a New Memory
-					</Button>
-				) : null;
-			}
-		}
 		const allTimeline = this.props.timeline.map((timeline, index) => {
 			return (
 				<VerticalTimelineElement
@@ -39,7 +48,7 @@ export default class Timeline extends Component {
 			<Container className="timeline">
 				<div className="memories">
 					<Divider horizontal>Memories Timeline</Divider>
-					<Container textAlign="center">{showAddMemory()}</Container>
+					<Container textAlign="center">{this.showAddMemory()}</Container>
 
 					<div className="test">
 						<Divider />
