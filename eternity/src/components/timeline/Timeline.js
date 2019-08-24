@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import TimelineItem from './TimelineItem';
-import { Container, Image, Divider } from 'semantic-ui-react';
+import { Container, Image, Divider, Button } from 'semantic-ui-react';
 import logo from '../../images/Triskelion_A.png';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import './Timeline.css';
+import TimelineForm from './TimelineForm.js';
+import { userInfo } from 'os';
 
 export default class Timeline extends Component {
 	render() {
@@ -25,6 +27,11 @@ export default class Timeline extends Component {
 			<Container className="timeline">
 				<div className="memories">
 					<Divider horizontal>Memories Timeline</Divider>
+					<Container textAlign="center">
+						<Button basic color="teal" centered>
+							Add a New Memory
+						</Button>
+					</Container>
 
 					<div className="test">
 						<Divider />

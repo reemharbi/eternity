@@ -382,7 +382,7 @@ export default class App extends Component {
 								/>
 							)}
 						/>
-						<Route path="/timeline" component={() => <Timeline timeline={this.state.timeline} />} />
+						<Route path="/timeline" component={() => <Timeline timeline={this.state.timeline} user={this.state.userInfo} students={this.state.students}/>} />
 					</div>
 
 					<div class="ui bottom fixed menu inverted centered">
