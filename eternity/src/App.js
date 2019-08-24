@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, HashRouter, Route, Link } from 'react-router-dom';
 import logo from './images/Triskelion_B.gif';
 import logo_1 from './images/Triskelion_A.png';
-import firebase from './firebase.js';
+import firebase, { auth, provider } from './firebase.js';
 import Projects from './components/projects/Projects.js';
 import Home from './Home';
 import Materials from './components/materials/Materials';
@@ -15,6 +15,7 @@ import secretLogo from './images/secret_logo.gif';
 import aaaLogo from './images/aaa_logo.png';
 import pikminLogo from './images/pikmin_logo.png';
 import saraCatsLogo from './images/sara_cats.jpg';
+import axios from 'axios';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import ModelAzzam from './components/ModelAzzam';
 import {
@@ -22,13 +23,15 @@ import {
 	Image,
 	Menu,
 	Visibility,
+	Popup,
 	List,
 	Segment,
 	Divider,
 	Modal,
 	Icon,
 	Button,
-	Header
+	Header,
+	Label
 } from 'semantic-ui-react';
 
 const menuStyle = {
@@ -75,6 +78,8 @@ export default class App extends Component {
 			websiteAlive: true,
 
 			isSignedIn: false,
+			user: null,
+			userInfo: null,
 
 			secretText: '',
 			savedText: 'sudo  rm  -rf  /',
@@ -94,6 +99,9 @@ export default class App extends Component {
 			secretText5: '',
 			savedText5: 'rm: /pikmin: Goodbye Pikmin'
 		};
+
+		this.login = this.login.bind(this);
+		this.logout = this.logout.bind(this);
 	}
 
 	resetSearchValue = (e) => {
@@ -105,6 +113,29 @@ export default class App extends Component {
 			};
 		});
 	};
+
+	login() {
+		auth.signInWithPopup(provider).then((result) => {
+			const user = result.user;
+			this.setState({
+				user
+			});
+			axios({
+				method: 'GET',
+				url: `https://api.github.com/user/${this.state.user.providerData[0].uid}`
+			}).then((response) => {
+				this.setState({ userInfo: response.data });
+			});
+		});
+	}
+
+	logout() {
+		auth.signOut().then(() => {
+			this.setState({
+				user: null
+			});
+		});
+	}
 	handleSearchValue = (e) => {
 		const newSearchValue = e.target.value;
 
@@ -234,9 +265,16 @@ export default class App extends Component {
 		const instructorsRef = firebase.database().ref('instructors');
 		const studentsRef = firebase.database().ref('students');
 
-		firebase.auth().onAuthStateChanged((user) => {
-			this.setState({ isSignedIn: !!user });
-			console.log('user', user);
+		auth.onAuthStateChanged((user) => {
+			if (user) {
+				this.setState({ user });
+				axios({
+					method: 'GET',
+					url: `https://api.github.com/user/${this.state.user.providerData[0].uid}`
+				}).then((response) => {
+					this.setState({ userInfo: response.data });
+				});
+			}
 		});
 
 		projectsRef.on('value', (snapshot) => {
@@ -287,6 +325,16 @@ export default class App extends Component {
 	render() {
 		const { menuFixed, activeItem } = this.state;
 
+		let displayName = null;
+		if (this.state.userInfo) {
+			displayName = this.state.students.find((student) => {
+				return student.git === this.state.userInfo.login;
+			});
+		}
+		if (displayName) {
+			displayName = displayName.name;
+		}
+
 		if (this.state.websiteAlive) {
 			return (
 				<HashRouter basename="/eternity">
@@ -329,11 +377,32 @@ export default class App extends Component {
 										Timeline
 									</Link>
 								</Menu.Item>
-								<Menu.Item as="a">
-									{this.state.isSignedIn ? (
-										'sign out'
+								<Menu.Item>
+									{this.state.user && this.state.userInfo ? (
+										<Popup
+											position="bottom center"
+											on="click"
+											pinned
+											trigger={
+												<Label as="a" color="black">
+													<Image avatar spaced="right" src={this.state.userInfo.avatar_url} />
+													{displayName}
+												</Label>
+											}
+										>
+											<List>
+												<List.Item>
+													<Button color="primary">Profile</Button>
+												</List.Item>
+												<List.Item>
+													<Button color="red" onClick={this.logout}>Logout</Button>
+												</List.Item>
+											</List>
+										</Popup>
 									) : (
-										<StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
+										<Button primary onClick={this.login}>
+											Log-in
+										</Button>
 									)}
 								</Menu.Item>
 							</Container>
