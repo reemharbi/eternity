@@ -66,6 +66,8 @@ export default class App extends Component {
 			azzam: false,
 			websiteAlive: true,
 
+			isSignedIn: false,
+
 			secretText: '',
 			savedText: 'sudo  rm  -rf  /',
 			pos: 0,
@@ -312,6 +314,9 @@ export default class App extends Component {
 									<Link to="/timeline" className="link">
 										Timeline
 									</Link>
+								</Menu.Item>
+								<Menu.Item as="a">
+                  {this.state.isSignedIn? "sign out":<Button>Sign In</Button>}  
 								</Menu.Item>
 							</Container>
 						</Menu>
