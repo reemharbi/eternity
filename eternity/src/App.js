@@ -80,7 +80,12 @@ export default class App extends Component {
 			websiteAlive: true,
 
 			user: null,
-			userInfo: null
+			userInfo: null,
+
+			title:'',
+			content:'',
+			location:''
+	
 		};
 
 		this.login = this.login.bind(this);
@@ -96,6 +101,12 @@ export default class App extends Component {
 			};
 		});
 	};
+
+	handleChange = (e) => {
+		this.setState({
+		  [e.target.name]: e.target.value
+		});
+	  }
 
 	login() {
 		auth.signInWithPopup(provider).then((result) => {
@@ -384,11 +395,16 @@ export default class App extends Component {
 						/>
 						<Route
 							path="/timeline"
-							component={() => (
+							render={(props) => (
 								<Timeline
 									timeline={this.state.timeline}
 									user={this.state.userInfo}
 									students={this.state.students}
+									handleChange={this.handleChange}
+									location_name={this.state.location}
+									title={this.state.title}
+									content={this.state.content}
+									{...props}
 								/>
 							)}
 						/>

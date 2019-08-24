@@ -21,14 +21,14 @@ export default class TimelineForm extends Component {
 			<Form>
 				<Form.Field>
 					<label>Title</label>
-					<input placeholder="Title" />
+					<input placeholder="Title" name="title"  onChange={this.props.handleChange} value={this.props.title}/>
 				</Form.Field>
 				<Form.Field>
 					<label>Location</label>
-					<input placeholder="Location" />
+					<input placeholder="Location" name="location" onChange={this.props.handleChange} value={this.props.location_name}/>
 				</Form.Field>
-				<Form.Field control={Select} label="Week" options={options} placeholder="Week" />
-				<Form.Field control={TextArea} label="Content" placeholder="What happened that day? ..." />
+				<Form.Field control={Select} name="week" label="Week" options={options} placeholder="Week" />
+				<Form.Field control={TextArea} name="content" label="Content" placeholder="What happened that day? ..." onChange={this.props.handleChange} value={this.props.content}/>
 				<Button primary type="submit">
 					Submit
 				</Button>
