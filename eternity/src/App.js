@@ -328,7 +328,7 @@ export default class App extends Component {
 											on="click"
 											pinned
 											trigger={
-												<Label as="a" color="black">
+												<Label basic  as="a" color="black">
 													<Image avatar spaced="right" src={this.state.userInfo.avatar_url} />
 													{displayName}
 												</Label>
@@ -346,7 +346,7 @@ export default class App extends Component {
 											</List>
 										</Popup>
 									) : (
-										<Label primary onClick={this.login} size="large" as="a" color="blue">
+										<Label basic onClick={this.login} size="large" as="a" color="blue">
 											Sign in
 										</Label>
 									)}
