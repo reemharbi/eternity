@@ -12,7 +12,7 @@ export default class TimelineItem extends Component {
 				return null;
 			}
 			return this.props.timeline.addedBy === user.name  ? (
-				<Button negative size="mini">
+				<Button negative size="mini" onClick={() => this.props.removeMemory(this.props.timeline.memoryID)}>
 					Remove Memory
 				</Button>
 			) : null;

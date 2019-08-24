@@ -86,7 +86,8 @@ export default class App extends Component {
 			content: '',
 			location: '',
 			week: '',
-			addedby: ''
+			addedby: '',
+			memoryID:''
 		};
 
 		this.login = this.login.bind(this);
@@ -109,7 +110,10 @@ export default class App extends Component {
 			addedBy: newValue
 		});
 	};
-
+	removeMemory(memoryID) {
+		const timelineRef = firebase.database().ref(`/timeline/${memoryID}`);
+		timelineRef.remove();
+	  }
 	handleChangeSelect = (e, { value }) => {
 		this.setState({ week: value });
 	};
@@ -306,6 +310,7 @@ export default class App extends Component {
 			let newState = [];
 			for (let timeline in timelineList) {
 				newState.push({
+					memoryID: timeline,
 					title: timelineList[timeline].title,
 					location: timelineList[timeline].location,
 					week: timelineList[timeline].week,
@@ -453,6 +458,7 @@ export default class App extends Component {
 									week={this.state.week}
 									handleChangeSelect={this.handleChangeSelect}
 									handleSubmit={this.handleSubmit}
+									removeMemory={this.removeMemory}
 									{...props}
 								/>
 							)}
