@@ -74,7 +74,7 @@ export default class App extends Component {
 			displayedProjects: [],
 			instructors: [],
 			students: [],
-
+			timeline: [],
 			visibleLogo: logo,
 			azzam: false,
 			websiteAlive: true,
@@ -207,6 +207,7 @@ export default class App extends Component {
 		const projectsRef = firebase.database().ref('projects');
 		const instructorsRef = firebase.database().ref('instructors');
 		const studentsRef = firebase.database().ref('students');
+		const timelineRef = firebase.database().ref('timeline');
 
 		auth.onAuthStateChanged((user) => {
 			if (user) {
@@ -250,11 +251,22 @@ export default class App extends Component {
 				};
 			});
 		});
+
+		timelineRef.on('value', (snapshot) => {
+			let newState = snapshot.val();
+
+			this.setState((prevState, props) => {
+				return {
+					timeline: newState
+				};
+			});
+		});
 	}
 
 	render() {
 		const { menuFixed, activeItem } = this.state;
 
+		//handling user name to show
 		let displayName = null;
 		if (this.state.userInfo) {
 			displayName = this.state.students.find((student) => {
@@ -263,6 +275,8 @@ export default class App extends Component {
 		}
 		if (displayName) {
 			displayName = displayName.name;
+		} else {
+			displayName = this.state.userInfo ? this.state.userInfo.login : null;
 		}
 
 		if (this.state.websiteAlive) {
@@ -368,7 +382,7 @@ export default class App extends Component {
 								/>
 							)}
 						/>
-						<Route path="/timeline" component={() => <Timeline timeline={timeline} />} />
+						<Route path="/timeline" component={() => <Timeline timeline={this.state.timeline} />} />
 					</div>
 
 					<div class="ui bottom fixed menu inverted centered">
@@ -382,9 +396,7 @@ export default class App extends Component {
 				</HashRouter>
 			);
 		} else {
-			return (
-				<UsmanCLI/>
-			);
+			return <UsmanCLI />;
 		}
 	}
 }

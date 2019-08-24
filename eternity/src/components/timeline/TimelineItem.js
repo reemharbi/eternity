@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { Image } from 'semantic-ui-react';
 export default class TimelineItem extends Component {
