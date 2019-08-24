@@ -23,7 +23,15 @@ export default class Timeline extends Component {
 				>
 					<Modal.Header textAlign="center">New Memory</Modal.Header>
 					<Modal.Content>
-						<TimelineForm handleChange={this.props.handleChange} title={this.props.title} content={this.props.content} location_name={this.props.location_name}/>
+						<TimelineForm
+							handleChange={this.props.handleChange}
+							title={this.props.title}
+							content={this.props.content}
+							location_name={this.props.location_name}
+							week={this.props.week}
+							handleChangeSelect={this.props.handleChangeSelect}
+
+						/>
 					</Modal.Content>
 				</Modal>
 			) : null;

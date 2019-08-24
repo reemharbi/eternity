@@ -82,10 +82,10 @@ export default class App extends Component {
 			user: null,
 			userInfo: null,
 
-			title:'',
-			content:'',
-			location:''
-	
+			title: '',
+			content: '',
+			location: '',
+			week: 'week 1'
 		};
 
 		this.login = this.login.bind(this);
@@ -101,12 +101,15 @@ export default class App extends Component {
 			};
 		});
 	};
+	handleChangeSelect = (e, { value }) => {
+		this.setState({ week: value });
+	};
 
 	handleChange = (e) => {
 		this.setState({
-		  [e.target.name]: e.target.value
+			[e.target.name]: e.target.value
 		});
-	  }
+	};
 
 	login() {
 		auth.signInWithPopup(provider).then((result) => {
@@ -127,7 +130,7 @@ export default class App extends Component {
 		auth.signOut().then(() => {
 			this.setState({
 				user: null,
-				userInfo:null
+				userInfo: null
 			});
 		});
 	}
@@ -341,16 +344,15 @@ export default class App extends Component {
 											pinned
 											trigger={
 												<Label basic as="a" color="black">
-													<Icon name='user'/>
+													<Icon name="user" />
 													{displayName}
 												</Label>
 											}
 										>
 											<List>
-
 												<List.Item>
-													<Label as='a' basic color="red" onClick={this.logout}>
-														<Icon name="power off"  />
+													<Label as="a" basic color="red" onClick={this.logout}>
+														<Icon name="power off" />
 														Sign out
 													</Label>
 												</List.Item>
@@ -404,6 +406,8 @@ export default class App extends Component {
 									location_name={this.state.location}
 									title={this.state.title}
 									content={this.state.content}
+									week={this.state.week}
+									handleChangeSelect={this.handleChangeSelect}
 									{...props}
 								/>
 							)}
