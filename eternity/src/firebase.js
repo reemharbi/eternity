@@ -16,12 +16,6 @@ const config = {
 	appId: '1:950613207075:web:9b39ddb96431bafd'
 };
 
-const uiConfig = {
-	signInFlow: 'popup',
-	signInOptions: [ firebase.auth.GithubAuthProvider.PROVIDER_ID ],
-	callbacks: {
-		signInSuccess: () => false
-	}
-};
+
 firebase.initializeApp(config);
 export default firebase;

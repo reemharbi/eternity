@@ -15,6 +15,7 @@ import secretLogo from './images/secret_logo.gif';
 import aaaLogo from './images/aaa_logo.png';
 import pikminLogo from './images/pikmin_logo.png';
 import saraCatsLogo from './images/sara_cats.jpg';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import ModelAzzam from './components/ModelAzzam';
 import {
 	Container,
@@ -50,6 +51,13 @@ export default class App extends Component {
 		overlayFixed: false
 	};
 	state = { activeItem: 'home' };
+	uiConfig = {
+		signInFlow: 'popup',
+		signInOptions: [ firebase.auth.GithubAuthProvider.PROVIDER_ID ],
+		callbacks: {
+			signInSuccess: () => false
+		}
+	};
 
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -322,7 +330,11 @@ export default class App extends Component {
 									</Link>
 								</Menu.Item>
 								<Menu.Item as="a">
-									{this.state.isSignedIn ? 'sign out' : <Button>Sign In</Button>}
+									{this.state.isSignedIn ? (
+										'sign out'
+									) : (
+										<StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
+									)}
 								</Menu.Item>
 							</Container>
 						</Menu>
