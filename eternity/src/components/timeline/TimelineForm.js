@@ -18,8 +18,8 @@ const options = [
 export default class TimelineForm extends Component {
 	render() {
 		return (
-			<Form>
-				<Form.Field>
+			<Form onSubmit={this.props.handleSubmit}>
+				<Form.Field >
 					<label>Title</label>
 					<input
 						placeholder="Title"

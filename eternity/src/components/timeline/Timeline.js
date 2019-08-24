@@ -11,35 +11,41 @@ import ModelAzzam from '../ModelAzzam';
 export default class Timeline extends Component {
 	showAddMemory = () => {
 		if (this.props.user && this.props.students) {
-			return this.props.students.some((student) => {
+			const user = this.props.students.some((student) => {
 				return student.git === this.props.user.login;
-			}) ? (
-				<Modal
-					trigger={
-						<Button basic color="teal" centered>
-							Add a New Memory
-						</Button>
-					}
-				>
-					<Modal.Header textAlign="center">New Memory</Modal.Header>
-					<Modal.Content>
-						<TimelineForm
-							handleChange={this.props.handleChange}
-							title={this.props.title}
-							content={this.props.content}
-							location_name={this.props.location_name}
-							week={this.props.week}
-							handleChangeSelect={this.props.handleChangeSelect}
+			});
+			if (user) {
 
-						/>
-					</Modal.Content>
-				</Modal>
-			) : null;
+				return (
+					<Modal
+						trigger={
+							<Button basic color="teal" centered>
+								Add a New Memory
+							</Button>
+						}
+					>
+						<Modal.Header textAlign="center">New Memory</Modal.Header>
+						<Modal.Content>
+							<TimelineForm
+								handleChange={this.props.handleChange}
+								title={this.props.title}
+								content={this.props.content}
+								location_name={this.props.location_name}
+								week={this.props.week}
+								handleChangeSelect={this.props.handleChangeSelect}
+								handleSubmit={this.props.handleSubmit}
+							/>
+						</Modal.Content>
+					</Modal>
+				);
+			} else {
+				return null;
+			}
 		}
 	};
 
 	render() {
-		const allTimeline = this.props.timeline.map((timeline, index) => {
+		const allTimeline = this.props.timeline.map((timeline, key) => {
 			return (
 				<VerticalTimelineElement
 					className="vertical-timeline-element--work"
@@ -47,7 +53,7 @@ export default class Timeline extends Component {
 					iconStyle={{ background: '#999999', color: '#000' }}
 					icon={<Image size="mini" src={logo} centered="true" className="icon" />}
 				>
-					<TimelineItem key={index} timeline={timeline} />
+					<TimelineItem key={key} timeline={timeline} />
 				</VerticalTimelineElement>
 			);
 		});

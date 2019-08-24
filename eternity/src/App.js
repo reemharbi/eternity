@@ -85,11 +85,13 @@ export default class App extends Component {
 			title: '',
 			content: '',
 			location: '',
-			week: 'week 1'
+			week: '',
+			addedby: ''
 		};
 
 		this.login = this.login.bind(this);
 		this.logout = this.logout.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	resetSearchValue = (e) => {
@@ -101,6 +103,13 @@ export default class App extends Component {
 			};
 		});
 	};
+
+	changeAddedBy = (newValue) => {
+		this.setState({
+			addedBy: newValue
+		});
+	};
+
 	handleChangeSelect = (e, { value }) => {
 		this.setState({ week: value });
 	};
@@ -110,6 +119,29 @@ export default class App extends Component {
 			[e.target.name]: e.target.value
 		});
 	};
+
+	handleSubmit(e) {
+		console.log('Submit');
+		const user = this.state.students.find((student) => student.git == this.state.userInfo.login);
+		console.log(user);
+		e.preventDefault();
+		const timelineRef = firebase.database().ref('timeline');
+		const memory = {
+			title: this.state.title,
+			location: this.state.location,
+			week: this.state.week,
+			content: this.state.content,
+			addedBy: user.name
+		};
+		timelineRef.push(memory);
+		this.setState({
+			title: '',
+			location: '',
+			week: '',
+			content: '',
+			addedBy: ''
+		});
+	}
 
 	login() {
 		auth.signInWithPopup(provider).then((result) => {
@@ -231,7 +263,9 @@ export default class App extends Component {
 					method: 'GET',
 					url: `https://api.github.com/user/${this.state.user.providerData[0].uid}`
 				}).then((response) => {
-					this.setState({ userInfo: response.data });
+					this.setState({
+						userInfo: response.data
+					});
 				});
 			}
 		});
@@ -268,7 +302,17 @@ export default class App extends Component {
 		});
 
 		timelineRef.on('value', (snapshot) => {
-			let newState = snapshot.val();
+			let timelineList = snapshot.val();
+			let newState = [];
+			for (let timeline in timelineList) {
+				newState.push({
+					title: timelineList[timeline].title,
+					location: timelineList[timeline].location,
+					week: timelineList[timeline].week,
+					content: timelineList[timeline].content,
+					addedBy: timelineList[timeline].addedBy
+				});
+			}
 
 			this.setState((prevState, props) => {
 				return {
@@ -408,6 +452,7 @@ export default class App extends Component {
 									content={this.state.content}
 									week={this.state.week}
 									handleChangeSelect={this.handleChangeSelect}
+									handleSubmit={this.handleSubmit}
 									{...props}
 								/>
 							)}
