@@ -62,7 +62,7 @@ export default class Timeline extends Component {
 					iconStyle={{ background: '#999999', color: '#000' }}
 					icon={<Image size="mini" src={logo} centered="true" className="icon" />}
 				>
-					<TimelineItem key={key} timeline={timeline} />
+					<TimelineItem key={key} timeline={timeline} user={this.props.user} students={this.props.students} />
 				</VerticalTimelineElement>
 			);
 		});

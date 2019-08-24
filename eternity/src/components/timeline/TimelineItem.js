@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import 'react-vertical-timeline-component/style.min.css';
 import { Image, Button } from 'semantic-ui-react';
+import Student from '../family/Student';
 export default class TimelineItem extends Component {
+	showRemoveButton() {
+		if (this.props.user && this.props.timeline && this.props.students) {
+			const user = this.props.students.find( student => {
+				return this.props.user.login === student.git;
+			})
+			if (!user){
+				return null;
+			}
+			return this.props.timeline.addedBy === user.name  ? (
+				<Button negative size="mini">
+					Remove Memory
+				</Button>
+			) : null;
+		}
+	}
+
 	render() {
 		let img = null;
 		if (this.props.timeline.img != null) {
@@ -19,9 +36,7 @@ export default class TimelineItem extends Component {
 				<p>
 					Added by: <span>{this.props.timeline.addedBy}</span>
 				</p>
-				<Button negative  size="mini">
-					Remove Memory
-				</Button>
+				{this.showRemoveButton()}
 			</div>
 		);
 	}
