@@ -77,7 +77,6 @@ export default class App extends Component {
 			azzam: false,
 			websiteAlive: true,
 
-			isSignedIn: false,
 			user: null,
 			userInfo: null,
 
@@ -395,14 +394,16 @@ export default class App extends Component {
 													<Button color="primary">Profile</Button>
 												</List.Item>
 												<List.Item>
-													<Button color="red" onClick={this.logout}>Logout</Button>
+													<Button color="red" onClick={this.logout}>
+														Sign out
+													</Button>
 												</List.Item>
 											</List>
 										</Popup>
 									) : (
-										<Button primary onClick={this.login}>
-											Log-in
-										</Button>
+										<Label primary onClick={this.login} size="large" as='a' color='blue'>
+											Sign in
+										</Label>
 									)}
 								</Menu.Item>
 							</Container>
