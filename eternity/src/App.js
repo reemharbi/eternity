@@ -225,6 +225,12 @@ export default class App extends Component {
 		const projectsRef = firebase.database().ref('projects');
 		const instructorsRef = firebase.database().ref('instructors');
 		const studentsRef = firebase.database().ref('students');
+
+		firebase.auth().onAuthStateChanged((user) => {
+			this.setState({ isSignedIn: !!user });
+			console.log('user', user);
+		});
+
 		projectsRef.on('value', (snapshot) => {
 			let newState = snapshot.val();
 
@@ -316,7 +322,7 @@ export default class App extends Component {
 									</Link>
 								</Menu.Item>
 								<Menu.Item as="a">
-                  {this.state.isSignedIn? "sign out":<Button>Sign In</Button>}  
+									{this.state.isSignedIn ? 'sign out' : <Button>Sign In</Button>}
 								</Menu.Item>
 							</Container>
 						</Menu>
