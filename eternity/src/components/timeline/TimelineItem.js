@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'react-vertical-timeline-component/style.min.css';
-import { Image } from 'semantic-ui-react';
+import { Image, Button } from 'semantic-ui-react';
 export default class TimelineItem extends Component {
 	render() {
 		let img = null;
@@ -19,6 +19,9 @@ export default class TimelineItem extends Component {
 				<p>
 					Added by: <span>{this.props.timeline.addedBy}</span>
 				</p>
+				<Button negative  size="mini">
+					Remove Memory
+				</Button>
 			</div>
 		);
 	}
