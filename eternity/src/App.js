@@ -328,20 +328,19 @@ export default class App extends Component {
 											on="click"
 											pinned
 											trigger={
-												<Label basic  as="a" color="black">
-													<Image avatar spaced="right" src={this.state.userInfo.avatar_url} />
+												<Label basic as="a" color="black">
+													<Icon name='user'/>
 													{displayName}
 												</Label>
 											}
 										>
 											<List>
+
 												<List.Item>
-													<Button color="primary">Profile</Button>
-												</List.Item>
-												<List.Item>
-													<Button color="red" onClick={this.logout}>
+													<Label as='a' basic color="red" onClick={this.logout}>
+														<Icon name="power off"  />
 														Sign out
-													</Button>
+													</Label>
 												</List.Item>
 											</List>
 										</Popup>
@@ -382,7 +381,16 @@ export default class App extends Component {
 								/>
 							)}
 						/>
-						<Route path="/timeline" component={() => <Timeline timeline={this.state.timeline} user={this.state.userInfo} students={this.state.students}/>} />
+						<Route
+							path="/timeline"
+							component={() => (
+								<Timeline
+									timeline={this.state.timeline}
+									user={this.state.userInfo}
+									students={this.state.students}
+								/>
+							)}
+						/>
 					</div>
 
 					<div class="ui bottom fixed menu inverted centered">
