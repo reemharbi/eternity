@@ -103,7 +103,8 @@ export default class App extends Component {
     this.setState( (prevState, props) => {  
       return {
         searchValue:'',
-        azzam: false
+        azzam: false,
+        displayedProjects: prevState.projects
       };   
   }) 
   }
