@@ -6,6 +6,7 @@ import azzam from './images/hbdAzzam.jpg';
 import monopoly from './images/monopoly.jpg';
 import trip1 from './images/trip1.JPG';
 import trip2 from './images/trip2.JPG';
+import turki from './images/turki.jpg';
 
 const timeline = [
     {
@@ -88,6 +89,14 @@ const timeline = [
         content: "The trickster gets tricked 👹", 
         addedBy: "Reem",
         img: monopoly
+    },
+    {
+        week:"week 9",
+        title:"Gooodbye Turki ~",
+        location: "Second HQ",
+        content: "Turki makes a comeback after going missing, but he only came back to say goodbye ", 
+        addedBy: "Reem",
+        img: turki
     }
    
 ];
