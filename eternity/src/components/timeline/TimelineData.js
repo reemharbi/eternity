@@ -9,22 +9,24 @@ import trip2 from './images/trip2.JPG';
 import turki from './images/turki.jpg';
 
 const timeline = [
-    {
-        week:"week 1",
-        title:"Introduction Day - June 16,2019",
-        location: "First HQ",
-        content: "The start of this journey begins here. First day at class we had to introduce strangers instead of ourselves.", 
-        addedBy: "Reem",
-        img: fHQ
-    },
-    {
-        week:"week 2",
-        title:"Where is Mo ? ",
-        location: "First HQ",
-        content: "Was there a Mo ??", 
-        addedBy: "Reem",
+	{
+		week: 'week 1',
+		title: 'Introduction Day - June 16,2019',
+		location: 'First HQ',
+		content:
+			'The start of this journey begins here. First day at class we had to introduce strangers instead of ourselves.',
+		addedBy: 'Reem',
+		img: fHQ
+	},
+	{
+		week: 'week 2',
+		title: 'Where is Mo ? ',
+		location: 'First HQ',
+		content: 'Was there a Mo ??',
+		addedBy: 'Reem'
+	},
 
-    },
+
     
     {
         week:"week 3",
