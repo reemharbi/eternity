@@ -465,7 +465,7 @@ export default class App extends Component {
 						/>
 					</div>
 
-					<div class="ui bottom fixed menu inverted centered">
+					<div class="ui bottom sticky menu inverted centered">
 						<Container style={{ padding: '2em 0em' }} vertical>
 							<p className="pikmin">
 								<Image src={logo_1} size="mini" centered />
