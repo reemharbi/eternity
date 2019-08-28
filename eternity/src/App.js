@@ -57,7 +57,7 @@ export default class App extends Component {
 	state = { activeItem: 'home' };
 	uiConfig = {
 		signInFlow: 'popup',
-		signInOptions: [ firebase.auth.GithubAuthProvider.PROVIDER_ID ],
+		signInOptions: [firebase.auth.GithubAuthProvider.PROVIDER_ID],
 		callbacks: {
 			signInSuccess: () => false
 		}
@@ -87,7 +87,7 @@ export default class App extends Component {
 			location: '',
 			week: '',
 			addedby: '',
-			memoryID:''
+			memoryID: ''
 		};
 
 		this.login = this.login.bind(this);
@@ -113,7 +113,7 @@ export default class App extends Component {
 	removeMemory(memoryID) {
 		const timelineRef = firebase.database().ref(`/timeline/${memoryID}`);
 		timelineRef.remove();
-	  }
+	}
 	handleChangeSelect = (e, { value }) => {
 		this.setState({ week: value });
 	};
@@ -125,9 +125,8 @@ export default class App extends Component {
 	};
 
 	handleSubmit(e) {
-		console.log('Submit');
 		const user = this.state.students.find((student) => student.git == this.state.userInfo.login);
-		console.log(user);
+		const img = e.target.querySelector('.image-upload').querySelector('img');
 		e.preventDefault();
 		const timelineRef = firebase.database().ref('timeline');
 		const memory = {
@@ -135,7 +134,8 @@ export default class App extends Component {
 			location: this.state.location,
 			week: this.state.week,
 			content: this.state.content,
-			addedBy: user.name
+			addedBy: user.name,
+			img: img ? img.src : null
 		};
 		timelineRef.push(memory);
 		this.setState({
@@ -315,13 +315,14 @@ export default class App extends Component {
 					location: timelineList[timeline].location,
 					week: timelineList[timeline].week,
 					content: timelineList[timeline].content,
-					addedBy: timelineList[timeline].addedBy
+					addedBy: timelineList[timeline].addedBy,
+					img: timelineList[timeline].img ? timelineList[timeline].img : null
 				});
 			}
 
 			this.setState((prevState, props) => {
 				return {
-					timeline: newState
+					timeline: newState.sort((a, b) => a.week.replace("week","") - b.week.replace("week",""))
 				};
 			});
 		});
@@ -408,10 +409,10 @@ export default class App extends Component {
 											</List>
 										</Popup>
 									) : (
-										<Label basic onClick={this.login} size="large" as="a" color="blue">
-											Sign in
+											<Label basic onClick={this.login} size="large" as="a" color="blue">
+												Sign in
 										</Label>
-									)}
+										)}
 								</Menu.Item>
 							</Container>
 						</Menu>
@@ -465,7 +466,7 @@ export default class App extends Component {
 						/>
 					</div>
 
-					<div class="ui bottom fixed menu inverted centered">
+					<div class="ui bottom sticky menu inverted centered">
 						<Container style={{ padding: '2em 0em' }} vertical>
 							<p className="pikmin">
 								<Image src={logo_1} size="mini" centered />
