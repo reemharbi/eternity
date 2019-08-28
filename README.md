@@ -103,7 +103,7 @@ This website was made as a way to remember all the great memories and members of
 - Internet connection
 - Web browser
 
-That's it! :star:
+#### That's it! :star:
 
 ---
 
