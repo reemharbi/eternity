@@ -125,9 +125,8 @@ export default class App extends Component {
 	};
 
 	handleSubmit(e) {
-		console.log('Submit');
 		const user = this.state.students.find((student) => student.git == this.state.userInfo.login);
-		console.log(user);
+		const img = e.target.querySelector('.image-upload').querySelector('img');
 		e.preventDefault();
 		const timelineRef = firebase.database().ref('timeline');
 		const memory = {
@@ -135,7 +134,8 @@ export default class App extends Component {
 			location: this.state.location,
 			week: this.state.week,
 			content: this.state.content,
-			addedBy: user.name
+			addedBy: user.name,
+			img: img? img.src: null
 		};
 		timelineRef.push(memory);
 		this.setState({
@@ -315,7 +315,8 @@ export default class App extends Component {
 					location: timelineList[timeline].location,
 					week: timelineList[timeline].week,
 					content: timelineList[timeline].content,
-					addedBy: timelineList[timeline].addedBy
+					addedBy: timelineList[timeline].addedBy,
+					img: timelineList[timeline].img? timelineList[timeline].img :null
 				});
 			}
 

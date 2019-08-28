@@ -63,7 +63,7 @@ export default class TimelineForm extends Component {
 					onChange={this.props.handleChange}
 					value={this.props.content}
 				/>
-				<Form.Field>
+				<Form.Field className="image-upload">
 					<ImageUpload />
 				</Form.Field>
 				<Button primary type="submit">
