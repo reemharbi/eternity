@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import firebase from '../../firebase.js';
 import FileUploader from "react-firebase-file-uploader";
+import { Progress } from 'semantic-ui-react'
+
 export default class ImageUpload extends Component {
     constructor(props) {
         super(props);
@@ -29,10 +31,11 @@ export default class ImageUpload extends Component {
     };
 
     render() {
+        const color = this.state.progress === 100? "green": "orange";
         return (
             <>
                 <label>Image:</label>
-                {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+                {this.state.isUploading && <Progress percent={this.state.progress} progress color={color}/>}
                 {this.state.imageURL && <img src={this.state.imageURL} width="100%" height="100%"/>}
                 <FileUploader
                     accept="image/*"
