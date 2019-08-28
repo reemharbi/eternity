@@ -33,7 +33,7 @@ export default class ImageUpload extends Component {
             <>
                 <label>Image:</label>
                 {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-                {this.state.imageURL && <img src={this.state.imageURL} />}
+                {this.state.imageURL && <img src={this.state.imageURL} width="100%" height="100%"/>}
                 <FileUploader
                     accept="image/*"
                     name="image"
