@@ -58,13 +58,17 @@ This website was made as a way to remember all the great memories and members of
 
 <p align="center">
  <img src="https://i.postimg.cc/rpmBLW3r/secret-logo.png"
-     alt="Tri_logo"
+     alt="Egg_1"
      width="200" /><img src="https://i.postimg.cc/CMDWYwPm/pikmin-logo.png"
-     alt="Tri_logo"
+     alt="Egg_2"
      width="200" /><img src="https://i.postimg.cc/1z2jhdDk/aaa-logo.png"
-     alt="Tri_logo"
-     width="200" />
-     </p>
+     alt="Egg_3"
+     width="200" /><img src="https://i.postimg.cc/br9fHmtq/sara-cats.jpg"
+     alt="Egg_4"
+     width="200" /><img src="https://i.postimg.cc/N0BTdMSY/eman.jpg"
+     alt="Egg_5"
+     width="200" />    
+</p>
 
 
 <h3 align="center">Try to catch them all! ✨</h3>
