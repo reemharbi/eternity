@@ -26,47 +26,53 @@ export default class TimelineForm extends Component {
 		this.props.handleSubmit(e);
 	}
 	render() {
+		const {title, location_name, week, content} = this.props;
+		let isDisabled = true;
+		if (title && location_name && content && week){
+			isDisabled = false;
+		}
 		return (
 			<Form onSubmit={this.onSubmitHandle}>
 				<Form.Field >
-					<label>Title</label>
+					<label>*Title</label>
 					<input
 						placeholder="Title"
 						name="title"
 						onChange={this.props.handleChange}
-						value={this.props.title}
+						value={title}
 					/>
 				</Form.Field>
 				<Form.Field>
-					<label>Location</label>
+					<label>*Location</label>
 					<input
 						placeholder="Location"
 						name="location"
 						onChange={this.props.handleChange}
-						value={this.props.location_name}
+						value={location_name}
 					/>
 				</Form.Field>
 				<Form.Field
 					control={Select}
 					name="week"
-					label="Week"
+					label="*Week"
 					options={options}
 					onChange={this.props.handleChangeSelect}
 					placeholder="week"
-					value={this.props.week}
+					value={week}
 				/>
 				<Form.Field
 					control={TextArea}
 					name="content"
-					label="Content"
+					label="*Content"
 					placeholder="What happened that day? ..."
 					onChange={this.props.handleChange}
-					value={this.props.content}
+					value={content}
 				/>
 				<Form.Field className="image-upload">
 					<ImageUpload />
 				</Form.Field>
-				<Button primary type="submit">
+				<p>* Required fileds</p>
+				<Button primary type="submit" disabled = {isDisabled}>
 					Submit
 				</Button>
 			</Form>
