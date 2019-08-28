@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bcda8dbd38912ca6b21d067aa445c807",
+    "revision": "165beb77cc0bb9cef17a07de035b292b",
     "url": "/eternity/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/eternity/static/css/2.d15f7e70.chunk.css"
   },
   {
-    "revision": "bd85ab54ff0b2dd24a92",
+    "revision": "e84e5271e965f77d3985",
     "url": "/eternity/static/css/main.95c3d349.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/eternity/static/js/2.497397cc.chunk.js"
   },
   {
-    "revision": "bd85ab54ff0b2dd24a92",
-    "url": "/eternity/static/js/main.fa47e9b4.chunk.js"
+    "revision": "e84e5271e965f77d3985",
+    "url": "/eternity/static/js/main.746b9d1a.chunk.js"
   },
   {
     "revision": "24b0a81dbe2341163e31",
