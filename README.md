@@ -88,6 +88,15 @@ This website was made as a way to remember all the great memories and members of
 
 ---
 
+### User Stories:
+- The user will be able to change website routes on a single page.
+- The user will be able to search through projects using student name, project name or project number (1,2,3...).
+- The user will be able to click on cards on materials componenet that redirect to course materials cheatsheets.
+- The user will be able to browse the timeline in chronological order.
+- The user will be able to invoke 'Easter Eggs' through specific triggers.
+
+---
+
 ### Technologies Used:
 - **Reactjs**: The website was built on Reactjs
 - **React Semantic-ui**: The library used for styling
