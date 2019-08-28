@@ -78,7 +78,13 @@ This website was made as a way to remember all the great memories and members of
 ### Future Plans:
 - Building games to add as easter eggs that are triggered on certain events.
 - Adding projects 3 and 4 to the students projects component.
+- Add the ability for course members to log in using their github accounts
+- Logged in course memebers can add to the timeline of memories
 
+### Future Plans Accomplished So Far:
+- Added project 3 to students projects :heavy_check_mark:
+- Course members can log in using their github accounts :heavy_check_mark:
+- Logged in course members can add to the timeline of memories :heavy_check_mark:
 
 ---
 
