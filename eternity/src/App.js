@@ -10,15 +10,13 @@ import Materials from './components/materials/Materials';
 import materials from './components/materials/MaterialsData';
 import Family from './components/family/Family';
 import Timeline from './components/timeline/Timeline';
-import timeline from './components/timeline/TimelineData';
 import secretLogo from './images/secret_logo.gif';
 import aaaLogo from './images/aaa_logo.png';
 import pikminLogo from './images/pikmin_logo.png';
 import saraCatsLogo from './images/sara_cats.jpg';
 import axios from 'axios';
 import UsmanCLI from './components/UsmanCLI.js';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import ModelAzzam from './components/ModelAzzam';
+
 import {
 	Container,
 	Image,
@@ -466,14 +464,14 @@ export default class App extends Component {
 						/>
 					</div>
 
-					<div class="ui bottom sticky menu inverted centered">
-						<Container style={{ padding: '2em 0em' }} vertical>
-							<p className="pikmin">
-								<Image src={logo_1} size="mini" centered />
-								Made with ♥ by The Pikmin
-							</p>
-						</Container>
-					</div>
+	<div class="ui bottom menu inverted centered">
+      <Container style={{ padding: '2em 0em' }} vertical>
+        <p className="pikmin">
+          <Image src={logo_1} size="mini" centered />
+          Made with ♥ by The Pikmin
+        </p>
+      </Container>
+    </div>
 				</HashRouter>
 			);
 		} else {
