@@ -6,3 +6,7 @@
 .slowest {
     animation-duration: 10s;
 }
+
+.wrapper  {
+    min-height: 70vh;
+}

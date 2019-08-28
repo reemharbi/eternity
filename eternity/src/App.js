@@ -418,7 +418,7 @@ export default class App extends Component {
 						</Menu>
 					</Visibility>
 
-					<div>
+					<div class="wrapper">
 						<Route exact path="/" component={Home} />
 						{/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
 						<Route
