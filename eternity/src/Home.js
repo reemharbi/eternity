@@ -12,7 +12,7 @@ export default class Home extends Component {
   render() {
 
     return (
-      <div class='content-wrap'>
+      <div className='please'>
 
         <Container>
         <Divider horizontal>Hi</Divider>        
