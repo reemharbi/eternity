@@ -1,42 +1,50 @@
-import React, { Component, Button } from 'react'
-
+import React, { Component } from 'react';
+import firebase from '../../firebase.js';
+import FileUploader from "react-firebase-file-uploader";
 export default class ImageUpload extends Component {
-    // constructor(props) {
-    //     super(props);
+    constructor(props) {
+        super(props);
 
-    //     this.state = {
-    //         image: null,
-    //         url: ''
-    //     };
-    //     this.handleChange = this.handleChange.bind(this);
-
-    // }
-
-    // handleChange = e => {
-    //     const image= e.target.files[0];
-    //     if (image){
-    //         this.setState({image});
-    //     }
-    // }
+        this.state = {
+            image: "",
+            isUploading: false,
+            progress: 0,
+            imageURL: ""
+        }
+    }
+    handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+    handleProgress = progress => this.setState({ progress });
+    handleUploadError = error => {
+        this.setState({ isUploading: false });
+        console.error(error);
+    };
+    handleUploadSuccess = filename => {
+        this.setState({ image: filename, progress: 100, isUploading: false });
+        firebase
+            .storage()
+            .ref("timeline")
+            .child(filename)
+            .getDownloadURL()
+            .then(url => this.setState({ imageURL: url }));
+    };
 
     render() {
         return (
-            <div>
-                <input type="file" />
-                <Button>Upload</Button>
-                {/* <Button
-                    content="Choose File"
-                    labelPosition="left"
-                    icon="file"
-                    onClick={() => this.fileInputRef.current.click()}
+            <>
+                <label>Image:</label>
+                {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+                {this.state.imageURL && <img src={this.state.imageURL} />}
+                <FileUploader
+                    accept="image/*"
+                    name="image"
+                    randomizeFilename
+                    storageRef={firebase.storage().ref("timeline")}
+                    onUploadStart={this.handleUploadStart}
+                    onUploadError={this.handleUploadError}
+                    onUploadSuccess={this.handleUploadSuccess}
+                    onProgress={this.handleProgress}
                 />
-                <input
-                    ref={this.fileInputRef}
-                    type="file"
-                    hidden
-                    onChange={this.fileChange}
-                /> */}
-            </div>
-        )
+            </>
+        );
     }
 }
