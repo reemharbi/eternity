@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Form, Checkbox, Button, Select, TextArea } from 'semantic-ui-react';
-
+import FileUploader from "react-firebase-file-uploader";
+import firebase from '../../firebase.js';
 const options = [
 	{ key: '1', text: 'Week 1', value: 'week 1' },
 	{ key: '2', text: 'Week 2', value: 'week 2' },
@@ -16,6 +17,34 @@ const options = [
 	{ key: '12', text: 'Week 12', value: 'week 12' }
 ];
 export default class TimelineForm extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			image: "",
+			isUploading: false,
+			progress: 0,
+			imageURL: ""
+		}
+	}
+	handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+	handleProgress = progress => this.setState({ progress });
+	handleUploadError = error => {
+	  this.setState({ isUploading: false });
+	  console.error(error);
+	};
+	handleUploadSuccess = filename => {
+	  this.setState({ image: filename, progress: 100, isUploading: false });
+	  firebase
+		.storage()
+		.ref("timeline")
+		.child(filename)
+		.getDownloadURL()
+		.then(url => this.setState({ imageURL: url }));
+	};
+  
+   
+
 
 	onSubmitHandle = e => {
 		this.props.close();
@@ -46,8 +75,8 @@ export default class TimelineForm extends Component {
 					control={Select}
 					name="week"
 					label="Week"
-                    options={options}
-                    onChange={this.props.handleChangeSelect}
+					options={options}
+					onChange={this.props.handleChangeSelect}
 					placeholder="week"
 					value={this.props.week}
 				/>
@@ -59,6 +88,21 @@ export default class TimelineForm extends Component {
 					onChange={this.props.handleChange}
 					value={this.props.content}
 				/>
+				<Form.Field>
+					<label>Image:</label>
+					{this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+					{this.state.imageURL && <img src={this.state.imageURL} />}
+					<FileUploader
+						accept="image/*"
+						name="image"
+						randomizeFilename
+						storageRef={firebase.storage().ref("timeline")}
+						onUploadStart={this.handleUploadStart}
+						onUploadError={this.handleUploadError}
+						onUploadSuccess={this.handleUploadSuccess}
+						onProgress={this.handleProgress}
+					/>
+				</Form.Field>
 				<Button primary type="submit">
 					Submit
 				</Button>
