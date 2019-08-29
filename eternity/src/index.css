@@ -15,10 +15,3 @@ code {
 #logo {
   height: 40px;
 }
-
-
-.fill {
-  display: flex;
-  flex-direction:column;
-  min-height: 70vh;
-}

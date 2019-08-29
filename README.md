@@ -58,13 +58,17 @@ This website was made as a way to remember all the great memories and members of
 
 <p align="center">
  <img src="https://i.postimg.cc/rpmBLW3r/secret-logo.png"
-     alt="Tri_logo"
+     alt="Egg_1"
      width="200" /><img src="https://i.postimg.cc/CMDWYwPm/pikmin-logo.png"
-     alt="Tri_logo"
+     alt="Egg_2"
      width="200" /><img src="https://i.postimg.cc/1z2jhdDk/aaa-logo.png"
-     alt="Tri_logo"
-     width="200" />
-     </p>
+     alt="Egg_3"
+     width="200" /><img src="https://i.postimg.cc/br9fHmtq/sara-cats.jpg"
+     alt="Egg_4"
+     width="200" /><img src="https://i.postimg.cc/N0BTdMSY/eman.jpg"
+     alt="Egg_5"
+     width="200" />    
+</p>
 
 
 <h3 align="center">Try to catch them all! ✨</h3>
@@ -74,7 +78,22 @@ This website was made as a way to remember all the great memories and members of
 ### Future Plans:
 - Building games to add as easter eggs that are triggered on certain events.
 - Adding projects 3 and 4 to the students projects component.
+- Add the ability for course members to log in using their github accounts
+- Logged in course memebers can add to the timeline of memories
 
+### Future Plans Accomplished So Far:
+- Added project 3 to students projects :heavy_check_mark:
+- Course members can log in using their github accounts :heavy_check_mark:
+- Logged in course members can add to the timeline of memories :heavy_check_mark:
+
+---
+
+### User Stories:
+- The user will be able to change website routes on a single page.
+- The user will be able to search through projects using student name, project name or project number (1,2,3...).
+- The user will be able to click on cards on materials componenet that redirect to course materials cheatsheets.
+- The user will be able to browse the timeline in chronological order.
+- The user will be able to invoke 'Easter Eggs' through specific triggers.
 
 ---
 
@@ -99,7 +118,7 @@ This website was made as a way to remember all the great memories and members of
 - Internet connection
 - Web browser
 
-That's it! :star:
+#### That's it! :star:
 
 ---
 

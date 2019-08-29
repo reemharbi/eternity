@@ -29,7 +29,7 @@ export default class Timeline extends Component {
 						open={this.state.modalIsOpen}
 						onClose={this.close}
 						trigger={
-							<Button basic color="teal" centered onClick={this.open}>
+							<Button color="teal" centered onClick={this.open}>
 								Add a New Memory
 							</Button>
 						}
