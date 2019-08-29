@@ -20,6 +20,8 @@ export default class Timeline extends Component {
 		if (this.props.user && this.props.students) {
 			const user = this.props.students.some((student) => {
 				return student.git === this.props.user.login;
+			}) || this.props.instructors.some((instructor) => {
+				return instructor.git_i === this.props.user.login;
 			});
 			if (user) {
 				return (
@@ -54,6 +56,7 @@ export default class Timeline extends Component {
 	};
 
 	render() {
+
 		const allTimeline = this.props.timeline.map((timeline, key) => {
 			return (
 				<VerticalTimelineElement
