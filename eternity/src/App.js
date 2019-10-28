@@ -450,6 +450,7 @@ export default class App extends Component {
 									timeline={this.state.timeline}
 									user={this.state.userInfo}
 									students={this.state.students}
+									instructors={this.state.instructors}
 									handleChange={this.handleChange}
 									location_name={this.state.location}
 									title={this.state.title}
