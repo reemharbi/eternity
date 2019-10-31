@@ -33,9 +33,6 @@ export default class ProjectTag extends Component {
       case "Postgresql":
         color = "olive"
         break;
-      case "Bootstrap":
-        color = "purple"
-        break;
       case "Express":
         color = "red"
         break;
