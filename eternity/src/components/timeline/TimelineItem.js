@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'react-vertical-timeline-component/style.min.css';
 import { Image, Button } from 'semantic-ui-react';
-import Student from '../family/Student';
 export default class TimelineItem extends Component {
 	showRemoveButton() {
 		if (this.props.user && this.props.timeline && this.props.students) {

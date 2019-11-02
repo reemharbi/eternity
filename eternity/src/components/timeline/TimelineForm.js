@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Form, Checkbox, Button, Select, TextArea } from 'semantic-ui-react';
+import { Form, Button, Select, TextArea } from 'semantic-ui-react';
 import ImageUpload from './ImageUpload';
 
 const options = [
@@ -17,8 +17,8 @@ const options = [
 	{ key: '12', text: 'Week 12', value: 'week 12' }
 ];
 export default class TimelineForm extends Component {
-  
-   
+
+
 
 
 	onSubmitHandle = e => {
@@ -26,9 +26,9 @@ export default class TimelineForm extends Component {
 		this.props.handleSubmit(e);
 	}
 	render() {
-		const {title, location_name, week, content} = this.props;
+		const { title, location_name, week, content } = this.props;
 		let isDisabled = true;
-		if (title && location_name && content && week){
+		if (title && location_name && content && week) {
 			isDisabled = false;
 		}
 		return (
@@ -72,7 +72,7 @@ export default class TimelineForm extends Component {
 					<ImageUpload />
 				</Form.Field>
 				<p>* Required fileds</p>
-				<Button primary type="submit" disabled = {isDisabled}>
+				<Button primary type="submit" disabled={isDisabled}>
 					Submit
 				</Button>
 			</Form>

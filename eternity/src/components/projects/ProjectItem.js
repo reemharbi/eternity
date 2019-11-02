@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './ProjectItem.css';
-import PosterImage from './PosterImage';
 import ProjectTag from './ProjectTag';
 import { Card, Icon, Image, Popup, Label, List } from 'semantic-ui-react';
 
@@ -36,6 +35,8 @@ export default class ProjectItem extends Component {
 					case 'Code Black':
 						labelColor = 'black';
 						break;
+					default:
+						labelColor = ""
 				}
 			}
 		}
@@ -43,7 +44,7 @@ export default class ProjectItem extends Component {
 		// list of names for the popup
 		const byList = this.props.project.by.map((person, index) => {
 			return (
-				<List icon="user" key="index">
+				<List icon="user" key={index}>
 					<List.Icon name="user" />
 					{person}
 				</List>
@@ -86,11 +87,11 @@ export default class ProjectItem extends Component {
 					<Card.Description>{this.props.project.text}</Card.Description>
 				</Card.Content>
 				<Card.Content extra>
-					<a href={this.props.project.git_url} target="_blank">
+					<a href={this.props.project.git_url} rel="noopener noreferrer" target="_blank">
 						<Icon name="github square" size="big" />
 					</a>
 
-					<a href={this.props.project.deployed_url} target="_blank">
+					<a href={this.props.project.deployed_url} rel="noopener noreferrer" target="_blank">
 						<Icon name="play" size="big" />
 					</a>
 

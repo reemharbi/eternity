@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, Icon, Divider } from 'semantic-ui-react'
+import { Button, Modal,} from 'semantic-ui-react'
 
 class ModelAzzam extends Component {
   state = { open:true }
