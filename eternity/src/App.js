@@ -229,7 +229,7 @@ export default class App extends Component {
           (project.team_name !== undefined
             ? project.team_name.toLowerCase().includes(newSearchValue.toLowerCase())
             : false) ||
-          project.no === newSearchValue
+          project.no ===  Number(newSearchValue)
         );
       });
 
