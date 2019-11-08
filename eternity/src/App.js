@@ -355,6 +355,8 @@ export default class App extends Component {
           <HashRouter basename="/eternity">
             <Visibility onBottomPassed={this.stickTopMenu} onBottomVisible={this.unStickTopMenu} once={false}>
               <Menu
+                stackable
+                fluid widths={6}
                 borderless
                 fixed={menuFixed ? 'top' : undefined}
                 style={menuFixed ? fixedMenuStyle : menuStyle}
