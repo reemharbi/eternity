@@ -42,10 +42,11 @@ export default class Projects extends Component {
 
 				<Divider />
 				<Pagination
+					size='mini'
 					activePage={activePage}
 					boundaryRange={boundaryRange}
 					onPageChange={this.handlePaginationChange}
-					siblingRange={siblingRange}
+					siblingRange={siblingRange-1}
 					totalPages={Math.ceil(this.props.projects.length / 6)}
 				/>
 			</Container>

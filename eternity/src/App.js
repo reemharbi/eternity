@@ -229,7 +229,7 @@ export default class App extends Component {
           (project.team_name !== undefined
             ? project.team_name.toLowerCase().includes(newSearchValue.toLowerCase())
             : false) ||
-          project.no ===  Number(newSearchValue)
+          project.no === Number(newSearchValue)
         );
       });
 
@@ -351,138 +351,143 @@ export default class App extends Component {
 
     if (this.state.websiteAlive) {
       return (
-        <HashRouter basename="/eternity">
-          <Visibility onBottomPassed={this.stickTopMenu} onBottomVisible={this.unStickTopMenu} once={false}>
-            <Menu
-              borderless
-              fixed={menuFixed ? 'top' : undefined}
-              style={menuFixed ? fixedMenuStyle : menuStyle}
-            >
-              <Container text>
-                <Menu.Item>
-                  <Link to="/">
+        <>
+          <HashRouter basename="/eternity">
+            <Visibility onBottomPassed={this.stickTopMenu} onBottomVisible={this.unStickTopMenu} once={false}>
+              <Menu
+                stackable
+                fluid widths={6}
+                borderless
+                fixed={menuFixed ? 'top' : undefined}
+                style={menuFixed ? fixedMenuStyle : menuStyle}
+              >
+                <Container text>
+                  <Menu.Item>
+                    <Link to="/">
+                      {' '}
+                      <Image size="small" src={this.state.visibleLogo} />{' '}
+                    </Link>
+                  </Menu.Item>
+                  <Menu.Item header>
+                    <Link to="/" className="link">
+                      Eternity
+									</Link>
+                  </Menu.Item>
+                  <Menu.Item as="a">
                     {' '}
-                    <Image size="small" src={this.state.visibleLogo} />{' '}
-                  </Link>
-                </Menu.Item>
-                <Menu.Item header>
-                  <Link to="/" className="link">
-                    Eternity
+                    <Link to="/materials" className="link">
+                      Materials
 									</Link>
-                </Menu.Item>
-                <Menu.Item as="a">
-                  {' '}
-                  <Link to="/materials" className="link">
-                    Materials
+                  </Menu.Item>
+                  <Menu.Item as="a">
+                    <Link to="/projects" className="link">
+                      Projects
 									</Link>
-                </Menu.Item>
-                <Menu.Item as="a">
-                  <Link to="/projects" className="link">
-                    Projects
+                  </Menu.Item>
+                  <Menu.Item as="a">
+                    <Link to="/family" className="link">
+                      The Family
 									</Link>
-                </Menu.Item>
-                <Menu.Item as="a">
-                  <Link to="/family" className="link">
-                    The Family
+                  </Menu.Item>
+                  <Menu.Item as="a">
+                    <Link to="/timeline" className="link">
+                      Timeline
 									</Link>
-                </Menu.Item>
-                <Menu.Item as="a">
-                  <Link to="/timeline" className="link">
-                    Timeline
-									</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  {this.state.user && this.state.userInfo ? (
-                    <Popup
-                      position="bottom center"
-                      on="click"
-                      pinned
-                      trigger={
-                        <Label basic as="a" color="black">
-                          <Icon name="user" />
-                          {displayName}
-                        </Label>
-                      }
-                    >
-                      <List>
-                        <List.Item>
-                          <Label as="a" basic color="red" onClick={this.logout}>
-                            <Icon name="power off" />
-                            Sign out
+                  </Menu.Item>
+                  <Menu.Item>
+                    {this.state.user && this.state.userInfo ? (
+                      <Popup
+                        position="bottom center"
+                        on="click"
+                        pinned
+                        trigger={
+                          <Label basic as="a" color="black">
+                            <Icon name="user" />
+                            {displayName}
+                          </Label>
+                        }
+                      >
+                        <List>
+                          <List.Item>
+                            <Label as="a" basic color="red" onClick={this.logout}>
+                              <Icon name="power off" />
+                              Sign out
 													</Label>
-                        </List.Item>
-                      </List>
-                    </Popup>
-                  ) : (
-                      <Label basic onClick={this.login} size="large" as="a" color="blue">
-                        Sign in
+                          </List.Item>
+                        </List>
+                      </Popup>
+                    ) : (
+                        <Label basic onClick={this.login} size="large" as="a" color="blue">
+                          Sign in
 										</Label>
-                    )}
-                </Menu.Item>
-              </Container>
-            </Menu>
-          </Visibility>
+                      )}
+                  </Menu.Item>
+                </Container>
+              </Menu>
+            </Visibility>
 
-          <div class="wrapper">
-            <Route exact path="/" component={Home} />
-            {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
-            <Route
-              path="/projects"
-              render={(props) => (
-                <Projects
-                  projects={this.state.displayedProjects}
-                  onChange={this.handleSearchValue}
-                  searchValue={this.state.searchValue}
-                  azzam={this.state.azzam}
-                  reset={this.resetSearchValue}
-                  {...props}
-                />
-              )}
-            />
-            <Route path="/materials" component={() => <Materials materials={materials} />} />
-            <Route
-              path="/family"
-              component={() => (
-                <Family
-                  instructors={this.state.instructors}
-                  students={this.state.students}
-                  user={this.state.userInfo}
-                  authToAccess = {this.state.authToAccess}
-                  usman={this.killWebsite}
-                />
-              )}
-            />
-            <Route
-              path="/timeline"
-              render={(props) => (
-                <Timeline
-                  timeline={this.state.timeline}
-                  user={this.state.userInfo}
-                  students={this.state.students}
-                  instructors={this.state.instructors}
-                  handleChange={this.handleChange}
-                  location_name={this.state.location}
-                  title={this.state.title}
-                  content={this.state.content}
-                  week={this.state.week}
-                  handleChangeSelect={this.handleChangeSelect}
-                  handleSubmit={this.handleSubmit}
-                  removeMemory={this.removeMemory}
-                  {...props}
-                />
-              )}
-            />
-          </div>
+            <div class="wrapper">
+              <Route exact path="/" component={Home} />
+              {/* Used render instead of component to add props, so it doesn't change the DOM node each time it render */}
+              <Route
+                path="/projects"
+                render={(props) => (
+                  <Projects
+                    projects={this.state.displayedProjects}
+                    onChange={this.handleSearchValue}
+                    searchValue={this.state.searchValue}
+                    azzam={this.state.azzam}
+                    reset={this.resetSearchValue}
+                    {...props}
+                  />
+                )}
+              />
+              <Route path="/materials" component={() => <Materials materials={materials} />} />
+              <Route
+                path="/family"
+                component={() => (
+                  <Family
+                    instructors={this.state.instructors}
+                    students={this.state.students}
+                    user={this.state.userInfo}
+                    authToAccess={this.state.authToAccess}
+                    usman={this.killWebsite}
+                  />
+                )}
+              />
+              <Route
+                path="/timeline"
+                render={(props) => (
+                  <Timeline
+                    timeline={this.state.timeline}
+                    user={this.state.userInfo}
+                    students={this.state.students}
+                    instructors={this.state.instructors}
+                    handleChange={this.handleChange}
+                    location_name={this.state.location}
+                    title={this.state.title}
+                    content={this.state.content}
+                    week={this.state.week}
+                    handleChangeSelect={this.handleChangeSelect}
+                    handleSubmit={this.handleSubmit}
+                    removeMemory={this.removeMemory}
+                    {...props}
+                  />
+                )}
+              />
+            </div>
 
-          <div class="ui bottom menu inverted centered">
+
+          </HashRouter>
+          <div class="ui bottom menu inverted centered stay-down-please">
             <Container style={{ padding: '2em 0em' }} vertical>
               <p className="pikmin">
                 <Image src={logo_1} size="mini" centered />
                 Made with ♥ by The Pikmin
-        </p>
+              </p>
             </Container>
           </div>
-        </HashRouter>
+        </>
       );
     } else {
       return <UsmanCLI />;

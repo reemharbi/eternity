@@ -26,7 +26,7 @@ export default class ProjectItem extends Component {
 					case 'AAA+':
 						labelColor = 'red';
 						break;
-					case 'The 4 Geeks':
+					case 'The Four Geeks':
 						labelColor = 'teal';
 						break;
 					case 'NAH':
