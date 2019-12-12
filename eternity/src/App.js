@@ -464,14 +464,14 @@ export default class App extends Component {
 						/>
 					</div>
 
-	<div class="ui bottom menu inverted centered">
+	{/* <div class="ui bottom menu inverted centered">
       <Container style={{ padding: '2em 0em' }} vertical>
         <p className="pikmin">
           <Image src={logo_1} size="mini" centered />
           Made with ♥ by The Pikmin
         </p>
       </Container>
-    </div>
+    </div> */}
 				</HashRouter>
 			);
 		} else {
